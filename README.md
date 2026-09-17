@@ -1,21 +1,24 @@
-# Edição de Vídeo — Liga Monstro Combate 2
+# Edição de Vídeo com IA — Liga Monstro Combate 2
 
-Histórico dos cortes de entrevista produzidos para o evento LMC 2: captação bruta, edição (corte, legendas, grade de cor) e publicação.
+Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA (Claude): transcrição, remoção de silêncios/erros, legendas, grade de cor e finalização — do bruto ao vídeo publicado.
 
 ## Entrevistas
 
-| Entrevistado | Bruto | Editado | Validado | YouTube | Drive (arquivo final) |
-|---|---|---|---|---|---|
-| Rangel Farias | removido¹ | ✓ | ✓ | pendente | pendente |
+| Entrevistado | Assista | Tempo de edição |
+|---|---|---|
+| Rangel Farias | [YouTube](https://youtu.be/c3HtwDRorsw) | não cronometrado (1ª edição)¹ |
 
-¹ Bruto apagado logo após a validação, antes do upload/backup — ver "Backup do bruto" no [CLAUDE.md](CLAUDE.md) para a regra adotada daqui pra frente.
+¹ A partir da próxima entrevista, o tempo de edição (do início do corte até a validação final) passa a ser registrado aqui.
 
 ## Processo
 
-1. Captação bruta baixada a partir dos links do Trello.
-2. Corte, remoção de silêncios/erros, legendas embutidas e vinheta de encerramento.
-3. Validação do corte.
-4. Publicação no YouTube.
-5. Arquivo final salvo no Drive da Liga Monstro.
+A cada entrevista, a IA:
 
-Este repositório guarda apenas o histórico e os arquivos de apoio da edição (legendas, transcrições, notas) — os vídeos em si ficam no YouTube e no Drive.
+1. Transcreve o áudio bruto.
+2. Remove silêncios, gaguejos, falsas partidas e retakes, mantendo só a melhor versão de cada resposta.
+3. Corta o início/fim para começar e terminar em conteúdo de entrevista, sem sobra de preparação/bastidor.
+4. Aplica grade de cor sutil e uma limpeza leve de ruído no áudio.
+5. Insere legendas quando o destino de publicação exige (não usadas para YouTube, que tem legenda nativa).
+6. Acrescenta a vinheta de encerramento padrão.
+
+As orientações completas do processo (incluindo os ajustes aprendidos na primeira edição) estão em [CLAUDE.md](CLAUDE.md).
