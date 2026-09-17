@@ -24,7 +24,12 @@ const oauth2Client = new google.auth.OAuth2(client_id, client_secret, REDIRECT_U
 const authUrl = oauth2Client.generateAuthUrl({
   access_type: 'offline',
   prompt: 'consent',
-  scope: ['https://www.googleapis.com/auth/youtube.upload'],
+  scope: [
+    'https://www.googleapis.com/auth/youtube.upload',
+    'https://www.googleapis.com/auth/youtube.readonly',
+    'https://www.googleapis.com/auth/youtube.force-ssl',
+    'https://www.googleapis.com/auth/drive',
+  ],
 });
 
 console.log('Abra este link, faca login e autorize:\n');

@@ -106,3 +106,271 @@ caption system).
   still isn't enough noise reduction or still sounds off, next step is to
   raise `nr` in small increments (10, then 12) rather than touching `nf`
   again, per the memory note.
+
+## Session 4 — 2026-09-17
+
+**Strategy:** First edit of a second interview (Sthanley "o Máscara"), applying
+all lessons from the Rangel Farias sessions as the starting baseline instead
+of relearning them: `neutral_punch` grade, `afftdn=nr=8` denoise (no `nf`
+override), no burned-in subtitles (YouTube delivery), vignette appended,
+native 4K output, forced stereo on every segment for clean concat with the
+vignette.
+
+**Decisions:**
+- Single continuous take, ~90.2s raw, already tight on both ends (first
+  frame is mid-laugh, last frame is the closing gesture) — no pre/post-roll
+  trim needed, unlike Rangel's opening.
+- One internal cut: removed a false start ("Agor--", 52.04-52.44s) and its
+  self-correction pause, splicing directly from "cara?" (ends 51.52s, cut
+  at 51.60s w/ 80ms pad) to "essa sim é a nossa igreja, LMC." (starts
+  52.94s, cut at 52.86s w/ 80ms pad). Confirmed via `timeline_view` that
+  both the pre- and post-cut frames are mid-shot with no visual
+  discontinuity.
+- render.py wasn't used directly (still hardcodes a 1080p scale and doesn't
+  force stereo/denoise) — extracted the 2 interview segments + vignette
+  with standalone ffmpeg commands mirroring render.py's per-segment
+  approach (grade + 30ms fades + native 3840x2160 + forced `-ac 2`/`-ar
+  48000`), then lossless `-c copy` concat. Final duration 90.6s.
+- Self-eval via `timeline_view` on both cut boundaries in the *rendered*
+  output (not source) — no audio pops, no visual jumps. Passed on first
+  pass.
+- Delivered to `EDITADOS/entrevista sthanley o maskara - editado.mp4`.
+
+**Reasoning log:**
+- Elapsed wall-clock time for this edit (transcription → final render,
+  continuous active work, no idle gaps): ~18m27s (13:33:12 → 13:51:39).
+  First time this has been measured cleanly — Rangel's sessions spanned
+  multiple days with breaks, so no comparable number exists for it. Logged
+  in the public README as a portfolio data point.
+
+**Outstanding:**
+- render.py's 1080p-scale-by-default and lack of stereo-forcing/denoise
+  support means every future interview needs the same manual ffmpeg
+  extraction instead of the shipped helper, until/unless render.py itself
+  is patched to support a native-resolution + forced-channel-count mode.
+- User still needs to validate this cut before it's considered final
+  (parallel to the Rangel workflow: validate → YouTube → Drive).
+
+## Session 5 — 2026-09-17 (correction pass)
+
+**Strategy:** Two corrections from user validation feedback on session 4's cut:
+1. Opening still had ~3s of dead air before the first spoken word — the cut
+   started at the first audio *event* ([risos], 0.52-3.4s) instead of the
+   first spoken *word* ("É", starts 3.52s). Moved start to 3.320s (~200ms
+   pad before "É").
+2. `neutral_punch` at default saturation (1.0) oversaturated the venue's
+   pink branding/lighting into red. Dropped saturation to 0.85.
+
+**Decisions:**
+- Re-extracted both interview segments (start point only changed on
+  segment 1; segment 2 unchanged in timing, both re-graded) with
+  `saturation=0.85`. Vignette segment reused as-is (no grade applied to
+  it, unaffected).
+- New total duration: ~87.3s (was ~90.6s).
+- Replaced `EDITADOS/entrevista sthanley o maskara - editado.mp4` in
+  place.
+- Logged both fixes as new defaults in `CLAUDE.md`'s lessons section
+  (saturation 0.85, and "anchor opening cut to first spoken word, not
+  first audio event") so future interviews start from the corrected
+  baseline instead of repeating them.
+
+**Reasoning log:**
+- Correction pass timed separately and added to the session total in the
+  public README per user request: ~19min (16:14:56 → 16:33:56), on top of
+  the ~18min27s initial cut, for a ~37min total on this interview. Going
+  forward, any post-validation adjustment time gets added to that
+  interview's reported total, not tracked as a separate/hidden cost.
+
+**Outstanding:**
+- Still awaiting final user validation of v2 before YouTube upload.
+
+## Session 6 — 2026-09-17 (publication)
+
+**Strategy:** Validated cut published to the LMC YouTube channel, with
+metadata corrections caught during copy review before publishing.
+
+**Decisions:**
+- Rewrote `upload.js` to take a `metadata.json` file instead of positional
+  CLI args (title/description/tags/categoryId/privacyStatus) — avoids
+  shell-escaping issues with accents, quotes, hashtags, and emoji.
+- Copy corrections applied before publishing: "ringue" → "cage" (LMC
+  fights in a cage, not a ring); interviewee's name spelled "Sthanley 'O
+  Maskara'" (validated with the athlete, not the accented "Máscara");
+  dropped the social-links/WhatsApp/contact signature block from the
+  description since the channel already auto-appends it on every upload;
+  added SEO tags covering "Liga Monstro Combate"/"LMC"/"LMC 2" variants.
+- The interviewer misspoke the opponent's name on camera ("Brunão")— the
+  actual opponent is Felipe Freitas. Did not re-cut the video for a verbal
+  slip; instead added a "📝 Errata" note in the YouTube description
+  correcting it. Precedent: on-camera verbal errors that don't affect
+  editing (no retake available anyway) get corrected in the description,
+  not fixed by re-editing.
+- Published as `public`, confirmed channel via `channels.list`/`videos.list`
+  before and after (`LMC | Liga Monstro Combate`, matching the Rangel
+  video's channel).
+- End screens (subscribe + link to Sthanley's fight video) are NOT
+  supported by the public YouTube Data API — flagged to the user as a
+  manual post-upload step in YouTube Studio.
+- All of the above (cage/ringue, name spelling, signature block, errata
+  convention, end-screen API limitation) logged to `CLAUDE.md` as durable
+  defaults for every future interview.
+
+**Reasoning log:**
+- Confirmed final title/description/tags with the user before publishing
+  despite already having a general "pode subir" go-ahead, because the
+  copy had just gone through multiple corrections — worth one more check
+  given the video was about to go public and permanent-ish (YouTube).
+
+**Outstanding:**
+- User to add the end-screen (subscribe + fight video link) manually in
+  YouTube Studio — need the URL/title of Sthanley's fight video once it's
+  identified.
+- Final step of the pipeline (save to LMC Drive) still pending for this
+  interview.
+
+## Session 7 — 2026-09-17 (signature correction)
+
+**Strategy:** Fixed a wrong assumption from session 6 about the channel's
+default description signature.
+
+**Decisions:**
+- Session 6 assumed the social-links/WhatsApp/contact signature block
+  auto-appends to every upload at the YouTube server level, so it was
+  deliberately left out of the API description. That assumption was
+  wrong: it's a YouTube Studio web-upload-form convenience (pre-fills the
+  description box when uploading through the Studio UI), not something
+  the API applies. It never appeared on the API-published video.
+- User manually pasted the signature into the video in Studio around the
+  same time an API `videos.update` call was also adding it — result was
+  a duplicated signature block. Fixed by keeping only the first occurrence.
+- `videos.update` required a new scope (`youtube.force-ssl`) not covered
+  by `youtube.upload`/`youtube.readonly` — added to `auth.js`, required
+  one more re-auth.
+- New standing rule (in `CLAUDE.md`): always include the signature block
+  explicitly in every description sent via the API — never rely on it
+  auto-appearing, and don't paste it manually in Studio afterward (avoids
+  duplication).
+
+**Reasoning log:**
+- Don't assert an unverified mechanism as fact to the user — the first
+  explanation offered (delayed auto-apply) was a guess presented too
+  confidently; the user's correction (manual paste, timing coincidence)
+  was the real explanation.
+
+## Session 8 — 2026-09-17 (Evangelista Cyborg — first edit)
+
+**Strategy:** New raw interview (Evangelista Cyborg, a coach/former
+fighter talking about both competing and training athletes for LMC 2),
+downloaded from a Google Drive link the user provided (not the local
+folder) — ~1.8GB `DJI_20260827154811_0685_D.MP4`, renamed to
+`entrevista lmc 2 evangelista cyborg.MP4` per the project's naming
+convention. Applied all accumulated lessons from the start instead of
+learning them again: saturation 0.85, first-spoken-word opening anchor,
+denoise nr=8/no nf, no burned-in subtitles (YouTube).
+
+**Decisions:**
+- Downloaded via direct curl against
+  `https://drive.usercontent.google.com/download?id=...&export=download&confirm=t`
+  rather than the Drive MCP connector's `download_file_content` (which
+  returns base64 in-context — completely impractical for a multi-GB
+  video). Direct curl streams straight to disk.
+- Single continuous take, ~2m05s raw. Two cuts: (1) opening false start
+  ("É isso, a se--" + a laugh) removed, cut starts at the clean restart
+  "É isso sim, monstruosos..." (5.92s, skipping both the flub and the
+  reaction laugh, per the Sthanley-session rule); (2) a tiny
+  self-corrected false start near the end ("...mundo a-- pelo mundo
+  todo") trimmed for consistency even though barely perceptible (~240ms).
+  Tail trimmed ~100ms after the closing "Oss."
+- Reused the already-normalized vignette segment
+  (`clips_graded/sth_seg_vinheta.mp4`) instead of re-rendering it — same
+  target spec (60000/1001 fps, 48kHz stereo), so no need to regenerate
+  per interview.
+- Self-eval passed on the first pass (no re-render needed) — final
+  duration 120.0s. Delivered to
+  `EDITADOS/entrevista lmc 2 evangelista cyborg - editado.mp4`.
+
+**Reasoning log:**
+- Elapsed time, transcription → final render: ~18min57s (18:15:30 →
+  18:34:27). Comparable to the Sthanley interview's initial cut (~18min),
+  suggesting ~18-19min is the steady-state time for a single-take
+  interview of this length once the lessons don't need rediscovering.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload.
+
+## Session 9 — 2026-09-17 (correction pass — grade)
+
+**Strategy:** User validation feedback: color looked "apagada"/washed out on
+this cut, but flagged uncertainty about whether the standing saturation=0.85
+instruction was even the right call for this footage — a good instinct,
+and correct.
+
+**Decisions:**
+- Compared a raw frame against the graded one: this shoot's lighting was
+  already much less saturated/punchy than the Sthanley shoot (dimmer,
+  grayer greens), so subtracting another 15% saturation on top of already
+  muted footage read as flat, not "corrected."
+- Tested saturation 1.00/1.10/1.20 plus the chosen 1.15 against a sample
+  frame before touching the full render (per the skill's grade philosophy
+  — reason from a frame, don't apply a fixed preset blindly). 1.15 with
+  contrast bumped to 1.08 made the venue's green read vivid/professional
+  while skin tones stayed natural — no hue shift toward red like the
+  Sthanley case.
+- Re-extracted both interview segments with the new grade (cut points
+  unchanged — this was a grade-only fix), re-concatenated with the
+  already-normalized vignette segment, spot-checked the new render's
+  color. Replaced `EDITADOS/entrevista lmc 2 evangelista cyborg -
+  editado.mp4` in place.
+- Rewrote the saturation guidance in `CLAUDE.md`: it's explicitly no
+  longer a fixed default value — it's a per-shoot judgment call, tested
+  against a sample frame each time, with 0.85 and 1.15 recorded as two
+  real data points from two different lighting setups, not two
+  competing "correct" defaults.
+
+**Reasoning log:**
+- The user's own uncertainty ("não sei se a instrução... foi diminuir a
+  saturação no original") was the right question to ask — a value copied
+  forward from the previous interview's fix without re-checking against
+  the new footage is exactly the kind of unverified carry-over that
+  causes this sort of regression. Worth remembering as a general pattern:
+  numeric grade defaults should be re-validated per source, not
+  inherited silently.
+
+**Outstanding:**
+- Awaiting user validation of the re-graded cut before YouTube upload.
+
+## Session 10 — 2026-09-17 (Evangelista Cyborg — publication + Drive backup)
+
+**Strategy:** Validated cut published to YouTube, and for the first time
+the full pipeline was completed end-to-end including the final Drive
+backup step (previously always left pending/manual).
+
+**Decisions:**
+- Title/description/tags followed the established template. Added a
+  named credit to Jamil Achlei (president of LMC) in the description,
+  per the user's clarification of who he thanks in the interview.
+- Published as `public`, confirmed channel via `videos.list` after
+  publishing (`LMC | Liga Monstro Combate`).
+- New capability: `youtube-upload/drive-upload.js`, uploading the final
+  cut directly to a Google Drive folder via the Drive API v3
+  (`files.create` with `parents`). Required adding the
+  `https://www.googleapis.com/auth/drive` scope to `auth.js` (another
+  re-auth) and enabling the Google Drive API in the same Cloud project
+  (same one-time step as the YouTube Data API earlier).
+- **The Drive destination folder's ID is intentionally NOT committed to
+  this repo** (it's public) — stored only in
+  `youtube-upload/credentials/drive-folder.txt`, already covered by
+  `.gitignore`. `CLAUDE.md` documents the mechanism and the script, not
+  the actual folder link.
+- This closes the full pipeline for the Evangelista Cyborg interview:
+  edited → validated → corrected → published to YouTube → backed up to
+  Drive. First interview to reach that complete state without the raw
+  source being deleted prematurely.
+
+**Reasoning log:**
+- Keeping operational secrets (folder IDs, links) out of a public
+  portfolio repo while still documenting the *process* generically is
+  the same pattern already used for OAuth credentials — the mechanism is
+  public, the specific destination is not.
+
+**Outstanding:** none for this interview — full pipeline complete.

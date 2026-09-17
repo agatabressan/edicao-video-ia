@@ -36,21 +36,53 @@ Note the frame rate and audio channel-count mismatch between raw interviews and 
 
 No output/exports folder exists yet — ask the user where finished cuts should be saved before writing the first one, then keep using that location.
 
-## Lições da primeira edição (Rangel Farias)
+## Lições acumuladas (Rangel Farias + Sthanley "o Máscara")
 
-Feedback recolhido durante a validação do primeiro corte — aplicar como padrão desde o início dos próximos cortes, não como ajuste posterior.
+Feedback recolhido na validação de cada corte — aplicar como padrão desde o início dos próximos cortes, não como ajuste posterior.
 
 **Legendas (burn-in):**
 - Para entrega no **YouTube**, NÃO gravar legenda na imagem — usar o sistema de legendas nativo do YouTube. Legenda embutida é só para destinos sem legenda nativa (ex.: envio direto por WhatsApp/Instagram).
 - Quando a legenda embutida for necessária, usar fonte pequena e posicionada no terço inferior (não colada na borda), texto branco em negrito com contorno, sem caixa de fundo pesada. O primeiro corte errou usando fonte grande (2x para 4K) posicionada alta demais na tela — isso foi apontado como "o maior problema" daquele corte. Conferir o enquadramento num frame de amostra antes de renderizar tudo.
 
 **Grade de cor e áudio:**
-- Aplicar grade sutil por padrão (contraste leve + curva S), não deixar sem grade — a imagem crua da câmera do evento sai "chapada"/pouco profissional.
+- Aplicar grade sutil por padrão (contraste leve + curva S + saturação levemente reduzida), não deixar sem grade — a imagem crua da câmera do evento sai "chapada"/pouco profissional.
+- **Saturação NÃO é um valor fixo — depende de quão saturada a captação já está.** No corte do Sthanley, a iluminação do palco estava muito intensa e saturação 1.0 deixou o rosa da marca puxando pro vermelho; a correção foi baixar pra 0.85. Já no corte do Evangelista Cyborg, a luz era mais fraca/acinzentada e aplicar esse mesmo 0.85 (herdado cegamente do caso anterior) deixou a imagem "apagada". Corrigido pra 1.15 nesse caso, com contraste 1.08, e ficou com aspecto profissional sem puxar o tom de pele.
+  **Regra prática:** antes de bater o corte final, tirar um frame de amostra do bruto e testar 2-3 valores de saturação (ex.: 0.85, 1.0, 1.15) lado a lado — subir até o cenário/cores de marca ficarem vívidos, mas parar assim que a pele começar a puxar pra vermelho/laranja ou alguma cor de marca mudar de tom. Baseline pra começar o teste: `eq=contrast=1.06-1.08:brightness=0.0:saturation=X,curves=master='0/0 0.25/0.23 0.75/0.77 1/1'`.
 - Aplicar denoise bem leve na trilha do microfone da entrevista por padrão, mesmo quando o áudio parece "bom" — só nessa trilha, nunca na trilha de música/vinheta.
 - Cuidado com o parâmetro `nf` do denoise: um ajuste agressivo (`nf` bem acima do padrão) fez as vozes soarem "como se estivessem falando dentro de um banheiro" (efeito oco/reverberante). Se precisar de mais redução de ruído, subir `nr` aos poucos — nunca mexer em `nf`.
 
 **Corte de abertura:**
 - Não deixar "ar morto" no início só porque as pessoas já estavam posicionadas — cortar bem próximo da primeira palavra falada, com ~200ms de folga antes dela (não no início bruto do arquivo).
+- **Risada/reação antes da primeira palavra falada também conta como "ar morto" a cortar**, não como conteúdo obrigatório — no corte do Sthanley, o áudio começava com ~3s de risada antes da primeira fala, e isso foi sinalizado como sobra a remover. Regra prática: ancorar o corte de abertura na primeira **palavra falada** do transcript, não no primeiro evento de áudio (risada, tosse, etc.), a menos que o usuário peça pra manter esse momento especificamente.
 
 **Backup do bruto:**
 - Só apagar o arquivo bruto depois que o corte validado estiver publicado no YouTube E salvo no Drive da Liga Monstro — ver aviso na seção "Editing brief" acima.
+
+**Terminologia e metadados de publicação (YouTube):**
+- Usar **"cage"**, nunca "ringue" — a LMC luta em cage, não em ringue.
+- O nome de ringue do lutador é **"Sthanley 'O Maskara'"** — grafia com K, sem acento, validada com o próprio atleta. Não "normalizar" para "Máscara".
+- **A assinatura padrão do canal (links de redes sociais, WhatsApp, contato) NÃO é confiável via upload por API.** Esse preenchimento automático é um recurso da tela de upload do YouTube Studio (pré-preenche a caixa de descrição), não algo aplicado pelo servidor a uploads via API — pode não aparecer, aparecer com atraso, ou duplicar se for colada manualmente por cima. **Sempre incluir o bloco de assinatura explicitamente na descrição enviada pela API**, não deixar pra confiar no automático. Texto padrão:
+  ```
+  -------
+  🔗 SIGA O LMC NAS REDES SOCIAIS:
+  Instagram: https://www.instagram.com/ligamonstrocombate
+  YouTube: https://www.youtube.com/@ligamonstrocombate
+
+  ✅ ENTRE PARA A COMUNIDADE OFICIAL (WHATSAPP):
+  Acompanhe os bastidores, receba promoções exclusivas e notícias em primeira mão!
+  👉 https://chat.whatsapp.com/Imp2AbdHdAb0rZNt3G8QbK
+
+  📧 CONTATO COMERCIAL:
+  contato@ligamonstrocombate.com.br
+
+  👽 LIGA MONSTRO COMBATE: A NOVA ERA DO MMA NO BRASIL!
+  ```
+- `videos.update` (para corrigir um vídeo já publicado) precisa do escopo `youtube.force-ssl`, que `youtube.upload` + `youtube.readonly` sozinhos não cobrem — já adicionado em `auth.js`.
+- Sempre incluir tags de vídeo (title/description/tags) cobrindo as variações "Liga Monstro Combate", "LMC" e "LMC 2" para SEO — não depender só do título.
+- Se algo for dito errado durante a entrevista (ex.: nome de adversário trocado), não é motivo pra recortar/re-editar — sinalizar a correção na descrição do YouTube como uma "errata" em vez de mexer no corte.
+- **Telas finais (end screens) não são configuráveis pela API do YouTube** — precisam ser adicionadas manualmente pelo usuário no YouTube Studio (Conteúdo → vídeo → Editor → Tela final) depois da publicação.
+
+**Backup final no Drive:**
+- Depois de publicado no YouTube, o corte final também é enviado pra uma pasta do Google Drive da Liga Monstro (arquivo definitivo do projeto).
+- Script: `youtube-upload/drive-upload.js <arquivo> <folderId>` — usa o mesmo token OAuth do YouTube, com o escopo `https://www.googleapis.com/auth/drive` adicionado em `auth.js`.
+- **O ID/link da pasta do Drive NUNCA vai neste repositório** (é público) — fica salvo só localmente em `youtube-upload/credentials/drive-folder.txt` (já coberto pelo `.gitignore` da pasta `credentials/`). Se essa pasta não existir numa sessão nova, pedir o link ao usuário de novo.

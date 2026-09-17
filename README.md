@@ -4,11 +4,13 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 
 ## Entrevistas
 
-| Entrevistado | Assista | Tempo de edição |
-|---|---|---|
-| Rangel Farias | [YouTube](https://youtu.be/c3HtwDRorsw) | não cronometrado (1ª edição)¹ |
+| Entrevistado | Assista | Modelo | Tempo de edição |
+|---|---|---|---|
+| Rangel Farias | [YouTube](https://youtu.be/c3HtwDRorsw) | não registrado¹ | não cronometrado¹ |
+| Sthanley "O Maskara" | [YouTube](https://youtu.be/k6YWMREPOtc) | Claude Sonnet 5 | ~37min (18min corte inicial + 19min de ajustes pós-validação) |
+| Evangelista Cyborg | [YouTube](https://youtu.be/zjY9A4tsqoI) | Claude Sonnet 5 | ~43min (19min corte inicial + 24min de ajuste de cor pós-validação) |
 
-¹ A partir da próxima entrevista, o tempo de edição (do início do corte até a validação final) passa a ser registrado aqui.
+¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
 
 ## Processo
 
@@ -20,5 +22,11 @@ A cada entrevista, a IA:
 4. Aplica grade de cor sutil e uma limpeza leve de ruído no áudio.
 5. Insere legendas quando o destino de publicação exige (não usadas para YouTube, que tem legenda nativa).
 6. Acrescenta a vinheta de encerramento padrão.
+7. Após validação, publica no YouTube e envia o arquivo final para o backup no Drive da Liga Monstro.
 
-As orientações completas do processo (incluindo os ajustes aprendidos na primeira edição) estão em [CLAUDE.md](CLAUDE.md).
+As orientações completas do processo (incluindo os ajustes aprendidos a cada edição) estão em [CLAUDE.md](CLAUDE.md).
+
+## Ferramentas
+
+- **[video-use](https://github.com/browser-use/video-use)** — skill open source usada para transcrição, seleção de cortes, grade de cor e legendas dentro do Claude Code.
+- **[youtube-upload/](youtube-upload)** — automação própria (Node.js + YouTube Data API) para publicar os cortes validados direto no canal da LMC.
