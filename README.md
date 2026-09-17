@@ -6,7 +6,9 @@ Histórico dos cortes de entrevista produzidos para o evento LMC 2: captação b
 
 | Entrevistado | Bruto | Editado | Validado | YouTube | Drive (arquivo final) |
 |---|---|---|---|---|---|
-| Rangel Farias | ✓ | ✓ | pendente | pendente | pendente |
+| Rangel Farias | removido¹ | ✓ | ✓ | pendente | pendente |
+
+¹ Bruto apagado logo após a validação, antes do upload/backup — ver "Backup do bruto" no [CLAUDE.md](CLAUDE.md) para a regra adotada daqui pra frente.
 
 ## Processo
 
