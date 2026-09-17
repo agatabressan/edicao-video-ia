@@ -29,4 +29,4 @@ As orientações completas do processo (incluindo os ajustes aprendidos a cada e
 ## Ferramentas
 
 - **[video-use](https://github.com/browser-use/video-use)** — skill open source usada para transcrição, seleção de cortes, grade de cor e legendas dentro do Claude Code.
-- **[youtube-upload/](youtube-upload)** — automação própria (Node.js + YouTube Data API) para publicar os cortes validados direto no canal da LMC.
+- **[youtube-upload/](youtube-upload)** — automação própria (Node.js) com dois scripts: `upload.js` publica os cortes validados direto no canal da LMC via YouTube Data API, e `drive-upload.js` envia o arquivo final para o backup no Drive da Liga Monstro via Google Drive API.
