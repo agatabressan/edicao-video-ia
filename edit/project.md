@@ -150,3 +150,36 @@ vignette.
   is patched to support a native-resolution + forced-channel-count mode.
 - User still needs to validate this cut before it's considered final
   (parallel to the Rangel workflow: validate → YouTube → Drive).
+
+## Session 5 — 2026-09-17 (correction pass)
+
+**Strategy:** Two corrections from user validation feedback on session 4's cut:
+1. Opening still had ~3s of dead air before the first spoken word — the cut
+   started at the first audio *event* ([risos], 0.52-3.4s) instead of the
+   first spoken *word* ("É", starts 3.52s). Moved start to 3.320s (~200ms
+   pad before "É").
+2. `neutral_punch` at default saturation (1.0) oversaturated the venue's
+   pink branding/lighting into red. Dropped saturation to 0.85.
+
+**Decisions:**
+- Re-extracted both interview segments (start point only changed on
+  segment 1; segment 2 unchanged in timing, both re-graded) with
+  `saturation=0.85`. Vignette segment reused as-is (no grade applied to
+  it, unaffected).
+- New total duration: ~87.3s (was ~90.6s).
+- Replaced `EDITADOS/entrevista sthanley o maskara - editado.mp4` in
+  place.
+- Logged both fixes as new defaults in `CLAUDE.md`'s lessons section
+  (saturation 0.85, and "anchor opening cut to first spoken word, not
+  first audio event") so future interviews start from the corrected
+  baseline instead of repeating them.
+
+**Reasoning log:**
+- Correction pass timed separately and added to the session total in the
+  public README per user request: ~19min (16:14:56 → 16:33:56), on top of
+  the ~18min27s initial cut, for a ~37min total on this interview. Going
+  forward, any post-validation adjustment time gets added to that
+  interview's reported total, not tracked as a separate/hidden cost.
+
+**Outstanding:**
+- Still awaiting final user validation of v2 before YouTube upload.

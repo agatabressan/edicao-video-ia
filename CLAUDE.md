@@ -36,21 +36,23 @@ Note the frame rate and audio channel-count mismatch between raw interviews and 
 
 No output/exports folder exists yet — ask the user where finished cuts should be saved before writing the first one, then keep using that location.
 
-## Lições da primeira edição (Rangel Farias)
+## Lições acumuladas (Rangel Farias + Sthanley "o Máscara")
 
-Feedback recolhido durante a validação do primeiro corte — aplicar como padrão desde o início dos próximos cortes, não como ajuste posterior.
+Feedback recolhido na validação de cada corte — aplicar como padrão desde o início dos próximos cortes, não como ajuste posterior.
 
 **Legendas (burn-in):**
 - Para entrega no **YouTube**, NÃO gravar legenda na imagem — usar o sistema de legendas nativo do YouTube. Legenda embutida é só para destinos sem legenda nativa (ex.: envio direto por WhatsApp/Instagram).
 - Quando a legenda embutida for necessária, usar fonte pequena e posicionada no terço inferior (não colada na borda), texto branco em negrito com contorno, sem caixa de fundo pesada. O primeiro corte errou usando fonte grande (2x para 4K) posicionada alta demais na tela — isso foi apontado como "o maior problema" daquele corte. Conferir o enquadramento num frame de amostra antes de renderizar tudo.
 
 **Grade de cor e áudio:**
-- Aplicar grade sutil por padrão (contraste leve + curva S), não deixar sem grade — a imagem crua da câmera do evento sai "chapada"/pouco profissional.
+- Aplicar grade sutil por padrão (contraste leve + curva S + saturação levemente reduzida), não deixar sem grade — a imagem crua da câmera do evento sai "chapada"/pouco profissional.
+- **Saturação: usar 0.85, não 1.0.** No corte do Sthanley, a grade com saturação neutra (1.0) deixou o rosa das cores da marca/palco saturado demais e puxando pro vermelho. `eq=contrast=1.06:brightness=0.0:saturation=0.85,curves=master='0/0 0.25/0.23 0.75/0.77 1/1'` é o novo padrão — reavaliar contra um frame de amostra se a iluminação do palco mudar muito de um evento pro outro.
 - Aplicar denoise bem leve na trilha do microfone da entrevista por padrão, mesmo quando o áudio parece "bom" — só nessa trilha, nunca na trilha de música/vinheta.
 - Cuidado com o parâmetro `nf` do denoise: um ajuste agressivo (`nf` bem acima do padrão) fez as vozes soarem "como se estivessem falando dentro de um banheiro" (efeito oco/reverberante). Se precisar de mais redução de ruído, subir `nr` aos poucos — nunca mexer em `nf`.
 
 **Corte de abertura:**
 - Não deixar "ar morto" no início só porque as pessoas já estavam posicionadas — cortar bem próximo da primeira palavra falada, com ~200ms de folga antes dela (não no início bruto do arquivo).
+- **Risada/reação antes da primeira palavra falada também conta como "ar morto" a cortar**, não como conteúdo obrigatório — no corte do Sthanley, o áudio começava com ~3s de risada antes da primeira fala, e isso foi sinalizado como sobra a remover. Regra prática: ancorar o corte de abertura na primeira **palavra falada** do transcript, não no primeiro evento de áudio (risada, tosse, etc.), a menos que o usuário peça pra manter esse momento especificamente.
 
 **Backup do bruto:**
 - Só apagar o arquivo bruto depois que o corte validado estiver publicado no YouTube E salvo no Drive da Liga Monstro — ver aviso na seção "Editing brief" acima.
