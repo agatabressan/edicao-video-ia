@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "sources": {
+    "rangel": "C:\\Users\\Ágata Bressan\\Downloads\\ENTREVISTAS LMC 2\\entrevista lmc 2 rangel farias.MP4",
+    "vinheta": "C:\\Users\\Ágata Bressan\\Downloads\\ENTREVISTAS LMC 2\\vinheta encerramento horizontal.mp4"
+  },
+  "ranges": [
+    {"source": "rangel", "start": 1.580, "end": 8.010, "beat": "INTRO",
+     "quote": "Mestre Rangel Faria... Todo respeito. E",
+     "reason": "Corte comeca ~200ms antes da primeira palavra (Mestre, em 1.78s); antes disso os dois so ficam parados sem falar, sem acao visual perdida."},
+    {"source": "rangel", "start": 8.850, "end": 12.010, "beat": "INTRO",
+     "quote": "William Rottweiler, preparado pra esse combate?",
+     "reason": "Continuacao apos respiracao cortada."},
+    {"source": "rangel", "start": 12.770, "end": 71.750, "beat": "Q1_RESPOSTA_E_PERGUNTA",
+     "quote": "William ja nasceu pronto... Qual e a expectativa... cenario?",
+     "reason": "Resposta do mestre sobre o Rottweiler + pergunta do apresentador sobre o evento, sem cortes internos; apenas aparada a pausa >1s antes da troca de falante seguinte."},
+    {"source": "rangel", "start": 73.130, "end": 102.150, "beat": "Q1_RESPOSTA",
+     "quote": "Po, pra mim e um prazer enorme... o Brasil merece.",
+     "reason": "Resposta completa sobre a expectativa do evento."},
+    {"source": "rangel", "start": 102.990, "end": 114.330, "beat": "Q2_PERGUNTA",
+     "quote": "E isso ai, mestre Rangel... la da sua equipe.",
+     "reason": "Pergunta de fechamento do apresentador, pausa >1s antes da resposta aparada."},
+    {"source": "rangel", "start": 115.630, "end": 150.000, "beat": "Q2_RESPOSTA_E_ENCERRAMENTO",
+     "quote": "Porra, a equipe RFA ta pronta... Obrigado",
+     "reason": "Mensagem final + aperto de mao + despedida; mantido ate o fim do arquivo, sem cortes (inclui a acao visual do aperto de mao)."},
+    {"source": "vinheta", "start": 0.000, "end": 1.600, "beat": "OUTRO",
+     "quote": "",
+     "reason": "Vinheta de encerramento padrao da LMC anexada ao final."}
+  ],
+  "grade": "neutral_punch",
+  "overlays": [],
+  "subtitles": null,
+  "total_duration_s": 144.90
+}

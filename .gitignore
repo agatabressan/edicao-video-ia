@@ -1,0 +1,17 @@
+# Vídeos e mídia bruta/pesada -- ficam no Drive/YouTube, não no Git
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.avi
+*.mkv
+*.png
+*.jpg
+*.jpeg
+
+# Pastas de trabalho intermediário da edição
+edit/clips_graded/
+edit/clips_preview/
+edit/verify/
+edit/edit/verify/
+EDITADOS/
