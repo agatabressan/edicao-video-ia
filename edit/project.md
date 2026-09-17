@@ -106,3 +106,47 @@ caption system).
   still isn't enough noise reduction or still sounds off, next step is to
   raise `nr` in small increments (10, then 12) rather than touching `nf`
   again, per the memory note.
+
+## Session 4 — 2026-09-17
+
+**Strategy:** First edit of a second interview (Sthanley "o Máscara"), applying
+all lessons from the Rangel Farias sessions as the starting baseline instead
+of relearning them: `neutral_punch` grade, `afftdn=nr=8` denoise (no `nf`
+override), no burned-in subtitles (YouTube delivery), vignette appended,
+native 4K output, forced stereo on every segment for clean concat with the
+vignette.
+
+**Decisions:**
+- Single continuous take, ~90.2s raw, already tight on both ends (first
+  frame is mid-laugh, last frame is the closing gesture) — no pre/post-roll
+  trim needed, unlike Rangel's opening.
+- One internal cut: removed a false start ("Agor--", 52.04-52.44s) and its
+  self-correction pause, splicing directly from "cara?" (ends 51.52s, cut
+  at 51.60s w/ 80ms pad) to "essa sim é a nossa igreja, LMC." (starts
+  52.94s, cut at 52.86s w/ 80ms pad). Confirmed via `timeline_view` that
+  both the pre- and post-cut frames are mid-shot with no visual
+  discontinuity.
+- render.py wasn't used directly (still hardcodes a 1080p scale and doesn't
+  force stereo/denoise) — extracted the 2 interview segments + vignette
+  with standalone ffmpeg commands mirroring render.py's per-segment
+  approach (grade + 30ms fades + native 3840x2160 + forced `-ac 2`/`-ar
+  48000`), then lossless `-c copy` concat. Final duration 90.6s.
+- Self-eval via `timeline_view` on both cut boundaries in the *rendered*
+  output (not source) — no audio pops, no visual jumps. Passed on first
+  pass.
+- Delivered to `EDITADOS/entrevista sthanley o maskara - editado.mp4`.
+
+**Reasoning log:**
+- Elapsed wall-clock time for this edit (transcription → final render,
+  continuous active work, no idle gaps): ~18m27s (13:33:12 → 13:51:39).
+  First time this has been measured cleanly — Rangel's sessions spanned
+  multiple days with breaks, so no comparable number exists for it. Logged
+  in the public README as a portfolio data point.
+
+**Outstanding:**
+- render.py's 1080p-scale-by-default and lack of stereo-forcing/denoise
+  support means every future interview needs the same manual ffmpeg
+  extraction instead of the shipped helper, until/unless render.py itself
+  is patched to support a native-resolution + forced-channel-count mode.
+- User still needs to validate this cut before it's considered final
+  (parallel to the Rangel workflow: validate → YouTube → Drive).

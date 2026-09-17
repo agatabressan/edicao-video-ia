@@ -4,11 +4,12 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 
 ## Entrevistas
 
-| Entrevistado | Assista | Tempo de edição |
-|---|---|---|
-| Rangel Farias | [YouTube](https://youtu.be/c3HtwDRorsw) | não cronometrado (1ª edição)¹ |
+| Entrevistado | Assista | Modelo | Tempo de edição |
+|---|---|---|---|
+| Rangel Farias | [YouTube](https://youtu.be/c3HtwDRorsw) | não registrado¹ | não cronometrado¹ |
+| Sthanley "o Máscara" | aguardando validação/publicação | Claude Sonnet 5 | ~18min (transcrição → corte final) |
 
-¹ A partir da próxima entrevista, o tempo de edição (do início do corte até a validação final) passa a ser registrado aqui.
+¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
 
 ## Processo
 
@@ -21,4 +22,9 @@ A cada entrevista, a IA:
 5. Insere legendas quando o destino de publicação exige (não usadas para YouTube, que tem legenda nativa).
 6. Acrescenta a vinheta de encerramento padrão.
 
-As orientações completas do processo (incluindo os ajustes aprendidos na primeira edição) estão em [CLAUDE.md](CLAUDE.md).
+As orientações completas do processo (incluindo os ajustes aprendidos a cada edição) estão em [CLAUDE.md](CLAUDE.md).
+
+## Ferramentas
+
+- **[video-use](https://github.com/browser-use/video-use)** — skill open source usada para transcrição, seleção de cortes, grade de cor e legendas dentro do Claude Code.
+- **[youtube-upload/](youtube-upload)** — automação própria (Node.js + YouTube Data API) para publicar os cortes validados direto no canal da LMC.
