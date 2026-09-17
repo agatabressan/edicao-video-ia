@@ -56,3 +56,11 @@ Feedback recolhido na validação de cada corte — aplicar como padrão desde o
 
 **Backup do bruto:**
 - Só apagar o arquivo bruto depois que o corte validado estiver publicado no YouTube E salvo no Drive da Liga Monstro — ver aviso na seção "Editing brief" acima.
+
+**Terminologia e metadados de publicação (YouTube):**
+- Usar **"cage"**, nunca "ringue" — a LMC luta em cage, não em ringue.
+- O nome de ringue do lutador é **"Sthanley 'O Maskara'"** — grafia com K, sem acento, validada com o próprio atleta. Não "normalizar" para "Máscara".
+- O canal do YouTube já tem uma assinatura padrão (links de redes sociais, WhatsApp, contato) configurada para aparecer automaticamente em todo upload — não duplicar esse bloco na descrição enviada pela API, só o texto específico do vídeo.
+- Sempre incluir tags de vídeo (title/description/tags) cobrindo as variações "Liga Monstro Combate", "LMC" e "LMC 2" para SEO — não depender só do título.
+- Se algo for dito errado durante a entrevista (ex.: nome de adversário trocado), não é motivo pra recortar/re-editar — sinalizar a correção na descrição do YouTube como uma "errata" em vez de mexer no corte.
+- **Telas finais (end screens) não são configuráveis pela API do YouTube** — precisam ser adicionadas manualmente pelo usuário no YouTube Studio (Conteúdo → vídeo → Editor → Tela final) depois da publicação.

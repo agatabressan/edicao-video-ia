@@ -183,3 +183,47 @@ vignette.
 
 **Outstanding:**
 - Still awaiting final user validation of v2 before YouTube upload.
+
+## Session 6 — 2026-09-17 (publication)
+
+**Strategy:** Validated cut published to the LMC YouTube channel, with
+metadata corrections caught during copy review before publishing.
+
+**Decisions:**
+- Rewrote `upload.js` to take a `metadata.json` file instead of positional
+  CLI args (title/description/tags/categoryId/privacyStatus) — avoids
+  shell-escaping issues with accents, quotes, hashtags, and emoji.
+- Copy corrections applied before publishing: "ringue" → "cage" (LMC
+  fights in a cage, not a ring); interviewee's name spelled "Sthanley 'O
+  Maskara'" (validated with the athlete, not the accented "Máscara");
+  dropped the social-links/WhatsApp/contact signature block from the
+  description since the channel already auto-appends it on every upload;
+  added SEO tags covering "Liga Monstro Combate"/"LMC"/"LMC 2" variants.
+- The interviewer misspoke the opponent's name on camera ("Brunão")— the
+  actual opponent is Felipe Freitas. Did not re-cut the video for a verbal
+  slip; instead added a "📝 Errata" note in the YouTube description
+  correcting it. Precedent: on-camera verbal errors that don't affect
+  editing (no retake available anyway) get corrected in the description,
+  not fixed by re-editing.
+- Published as `public`, confirmed channel via `channels.list`/`videos.list`
+  before and after (`LMC | Liga Monstro Combate`, matching the Rangel
+  video's channel).
+- End screens (subscribe + link to Sthanley's fight video) are NOT
+  supported by the public YouTube Data API — flagged to the user as a
+  manual post-upload step in YouTube Studio.
+- All of the above (cage/ringue, name spelling, signature block, errata
+  convention, end-screen API limitation) logged to `CLAUDE.md` as durable
+  defaults for every future interview.
+
+**Reasoning log:**
+- Confirmed final title/description/tags with the user before publishing
+  despite already having a general "pode subir" go-ahead, because the
+  copy had just gone through multiple corrections — worth one more check
+  given the video was about to go public and permanent-ish (YouTube).
+
+**Outstanding:**
+- User to add the end-screen (subscribe + fight video link) manually in
+  YouTube Studio — need the URL/title of Sthanley's fight video once it's
+  identified.
+- Final step of the pipeline (save to LMC Drive) still pending for this
+  interview.
