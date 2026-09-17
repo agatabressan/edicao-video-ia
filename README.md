@@ -8,7 +8,7 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 |---|---|---|---|
 | Rangel Farias | [YouTube](https://youtu.be/c3HtwDRorsw) | não registrado¹ | não cronometrado¹ |
 | Sthanley "O Maskara" | [YouTube](https://youtu.be/k6YWMREPOtc) | Claude Sonnet 5 | ~37min (18min corte inicial + 19min de ajustes pós-validação) |
-| Evangelista Cyborg | aguardando validação/publicação | Claude Sonnet 5 | ~43min (19min corte inicial + 24min de ajuste de cor pós-validação) |
+| Evangelista Cyborg | [YouTube](https://youtu.be/zjY9A4tsqoI) | Claude Sonnet 5 | ~43min (19min corte inicial + 24min de ajuste de cor pós-validação) |
 
 ¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
 
@@ -22,6 +22,7 @@ A cada entrevista, a IA:
 4. Aplica grade de cor sutil e uma limpeza leve de ruído no áudio.
 5. Insere legendas quando o destino de publicação exige (não usadas para YouTube, que tem legenda nativa).
 6. Acrescenta a vinheta de encerramento padrão.
+7. Após validação, publica no YouTube e envia o arquivo final para o backup no Drive da Liga Monstro.
 
 As orientações completas do processo (incluindo os ajustes aprendidos a cada edição) estão em [CLAUDE.md](CLAUDE.md).
 

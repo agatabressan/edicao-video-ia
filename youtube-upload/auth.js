@@ -28,6 +28,7 @@ const authUrl = oauth2Client.generateAuthUrl({
     'https://www.googleapis.com/auth/youtube.upload',
     'https://www.googleapis.com/auth/youtube.readonly',
     'https://www.googleapis.com/auth/youtube.force-ssl',
+    'https://www.googleapis.com/auth/drive',
   ],
 });
 

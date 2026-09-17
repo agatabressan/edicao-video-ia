@@ -338,3 +338,39 @@ and correct.
 
 **Outstanding:**
 - Awaiting user validation of the re-graded cut before YouTube upload.
+
+## Session 10 — 2026-09-17 (Evangelista Cyborg — publication + Drive backup)
+
+**Strategy:** Validated cut published to YouTube, and for the first time
+the full pipeline was completed end-to-end including the final Drive
+backup step (previously always left pending/manual).
+
+**Decisions:**
+- Title/description/tags followed the established template. Added a
+  named credit to Jamil Achlei (president of LMC) in the description,
+  per the user's clarification of who he thanks in the interview.
+- Published as `public`, confirmed channel via `videos.list` after
+  publishing (`LMC | Liga Monstro Combate`).
+- New capability: `youtube-upload/drive-upload.js`, uploading the final
+  cut directly to a Google Drive folder via the Drive API v3
+  (`files.create` with `parents`). Required adding the
+  `https://www.googleapis.com/auth/drive` scope to `auth.js` (another
+  re-auth) and enabling the Google Drive API in the same Cloud project
+  (same one-time step as the YouTube Data API earlier).
+- **The Drive destination folder's ID is intentionally NOT committed to
+  this repo** (it's public) — stored only in
+  `youtube-upload/credentials/drive-folder.txt`, already covered by
+  `.gitignore`. `CLAUDE.md` documents the mechanism and the script, not
+  the actual folder link.
+- This closes the full pipeline for the Evangelista Cyborg interview:
+  edited → validated → corrected → published to YouTube → backed up to
+  Drive. First interview to reach that complete state without the raw
+  source being deleted prematurely.
+
+**Reasoning log:**
+- Keeping operational secrets (folder IDs, links) out of a public
+  portfolio repo while still documenting the *process* generically is
+  the same pattern already used for OAuth credentials — the mechanism is
+  public, the specific destination is not.
+
+**Outstanding:** none for this interview — full pipeline complete.

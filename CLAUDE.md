@@ -81,3 +81,8 @@ Feedback recolhido na validação de cada corte — aplicar como padrão desde o
 - Sempre incluir tags de vídeo (title/description/tags) cobrindo as variações "Liga Monstro Combate", "LMC" e "LMC 2" para SEO — não depender só do título.
 - Se algo for dito errado durante a entrevista (ex.: nome de adversário trocado), não é motivo pra recortar/re-editar — sinalizar a correção na descrição do YouTube como uma "errata" em vez de mexer no corte.
 - **Telas finais (end screens) não são configuráveis pela API do YouTube** — precisam ser adicionadas manualmente pelo usuário no YouTube Studio (Conteúdo → vídeo → Editor → Tela final) depois da publicação.
+
+**Backup final no Drive:**
+- Depois de publicado no YouTube, o corte final também é enviado pra uma pasta do Google Drive da Liga Monstro (arquivo definitivo do projeto).
+- Script: `youtube-upload/drive-upload.js <arquivo> <folderId>` — usa o mesmo token OAuth do YouTube, com o escopo `https://www.googleapis.com/auth/drive` adicionado em `auth.js`.
+- **O ID/link da pasta do Drive NUNCA vai neste repositório** (é público) — fica salvo só localmente em `youtube-upload/credentials/drive-folder.txt` (já coberto pelo `.gitignore` da pasta `credentials/`). Se essa pasta não existir numa sessão nova, pedir o link ao usuário de novo.
