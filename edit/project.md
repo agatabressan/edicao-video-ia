@@ -227,3 +227,73 @@ metadata corrections caught during copy review before publishing.
   identified.
 - Final step of the pipeline (save to LMC Drive) still pending for this
   interview.
+
+## Session 7 — 2026-09-17 (signature correction)
+
+**Strategy:** Fixed a wrong assumption from session 6 about the channel's
+default description signature.
+
+**Decisions:**
+- Session 6 assumed the social-links/WhatsApp/contact signature block
+  auto-appends to every upload at the YouTube server level, so it was
+  deliberately left out of the API description. That assumption was
+  wrong: it's a YouTube Studio web-upload-form convenience (pre-fills the
+  description box when uploading through the Studio UI), not something
+  the API applies. It never appeared on the API-published video.
+- User manually pasted the signature into the video in Studio around the
+  same time an API `videos.update` call was also adding it — result was
+  a duplicated signature block. Fixed by keeping only the first occurrence.
+- `videos.update` required a new scope (`youtube.force-ssl`) not covered
+  by `youtube.upload`/`youtube.readonly` — added to `auth.js`, required
+  one more re-auth.
+- New standing rule (in `CLAUDE.md`): always include the signature block
+  explicitly in every description sent via the API — never rely on it
+  auto-appearing, and don't paste it manually in Studio afterward (avoids
+  duplication).
+
+**Reasoning log:**
+- Don't assert an unverified mechanism as fact to the user — the first
+  explanation offered (delayed auto-apply) was a guess presented too
+  confidently; the user's correction (manual paste, timing coincidence)
+  was the real explanation.
+
+## Session 8 — 2026-09-17 (Evangelista Cyborg — first edit)
+
+**Strategy:** New raw interview (Evangelista Cyborg, a coach/former
+fighter talking about both competing and training athletes for LMC 2),
+downloaded from a Google Drive link the user provided (not the local
+folder) — ~1.8GB `DJI_20260827154811_0685_D.MP4`, renamed to
+`entrevista lmc 2 evangelista cyborg.MP4` per the project's naming
+convention. Applied all accumulated lessons from the start instead of
+learning them again: saturation 0.85, first-spoken-word opening anchor,
+denoise nr=8/no nf, no burned-in subtitles (YouTube).
+
+**Decisions:**
+- Downloaded via direct curl against
+  `https://drive.usercontent.google.com/download?id=...&export=download&confirm=t`
+  rather than the Drive MCP connector's `download_file_content` (which
+  returns base64 in-context — completely impractical for a multi-GB
+  video). Direct curl streams straight to disk.
+- Single continuous take, ~2m05s raw. Two cuts: (1) opening false start
+  ("É isso, a se--" + a laugh) removed, cut starts at the clean restart
+  "É isso sim, monstruosos..." (5.92s, skipping both the flub and the
+  reaction laugh, per the Sthanley-session rule); (2) a tiny
+  self-corrected false start near the end ("...mundo a-- pelo mundo
+  todo") trimmed for consistency even though barely perceptible (~240ms).
+  Tail trimmed ~100ms after the closing "Oss."
+- Reused the already-normalized vignette segment
+  (`clips_graded/sth_seg_vinheta.mp4`) instead of re-rendering it — same
+  target spec (60000/1001 fps, 48kHz stereo), so no need to regenerate
+  per interview.
+- Self-eval passed on the first pass (no re-render needed) — final
+  duration 120.0s. Delivered to
+  `EDITADOS/entrevista lmc 2 evangelista cyborg - editado.mp4`.
+
+**Reasoning log:**
+- Elapsed time, transcription → final render: ~18min57s (18:15:30 →
+  18:34:27). Comparable to the Sthanley interview's initial cut (~18min),
+  suggesting ~18-19min is the steady-state time for a single-take
+  interview of this length once the lessons don't need rediscovering.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload.

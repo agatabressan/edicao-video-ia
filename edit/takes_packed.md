@@ -3,6 +3,30 @@
 Phrase-level, grouped on silences ≥ 0.5s or speaker change.
 Use `[start-end]` ranges to address cuts in the EDL.
 
+## entrevista lmc 2 evangelista cyborg  (duration: 2m 02.1s, 22 phrases)
+  [002.36-010.26] S0 É isso, a se-- ([riso]) É isso sim, monstruosos. Eu tô aqui com ele, fera braba, Cyborg.
+  [010.90-017.54] S0 Irmão, fala pra gente, é muito mais monstruoso tá lá saindo na mão ou ter um aluno teu lá
+  [018.18-019.14] S0 arrumando confusão?
+  [019.58-026.74] S1 Olha, é, é emocionante você tá dos dois lados. Quando você vai lutar, a adrenalina é muito alta, mas quando você
+  [027.36-039.60] S1 participa de uma preparação de um atleta, que você contribui pra que ele esteja pronto pra poder se apresentar num evento desse nível também, é muito emocionante. E a adrenalina vai lá em cima sempre, né? Isso que é gratificante da luta,
+  [040.10-042.60] S1 é que a gente tá, se envolve emocionalmente
+  [043.32-047.34] S1 e a vitória do atleta é a vitória do treinador e a gente é uma equipe
+  [048.10-048.34] S1 e
+  [048.88-065.80] S1 é muito bacana a gente após encerrar a carreira, a gente continuar contribuindo pra que o nosso esporte se desenvolva e as pessoas estejam representando aquilo que você aprendeu ao longo de décadas, né? Com sangue, suor e lágrima, você tá compartilhando e eles estarem representando o seu trabalho.
+  [066.58-071.48] S0 É isso aí, Cyborg. E, e olha só, a Liga Monstro Kombat está trazendo aí, né, é, muitas novidades
+  [072.02-074.00] S0 e é um evento que só tem crescido.
+  [074.70-077.14] S0 O que que você espera da Liga Monstro Kombat?
+  [077.66-080.22] S1 Olha, eu só agradeço ao Jamil por essa oportunidade,
+  [080.76-094.50] S1 por essa iniciativa. Nós sabemos que fazer evento no Brasil é muito difícil, é um desafio muito grande e ele tá encarando aí com muita seriedade esse grande desafio. E pode ter certeza que o que nós pudermos fazer pra contribuir pra que
+  [095.18-104.40] S1 a, essa liga se torne uma das maiores do Brasil, se não a maior, nós vamos fazer, é, trazendo atleta sempre de nível competitivo.
+  [104.90-109.98] S1 Então estamos à disposição e temos muita gratidão por mais essa grande liga
+  [110.48-113.12] S1 que vai se despontar com toda certeza aqui dentro do nosso Brasil
+  [113.68-113.84] S1 e
+  [114.34-116.44] S1 crescer po mundo a-- pelo mundo todo, né?
+  [116.78-119.86] S0 É isso aí, é o que o monstro Cyborg acabou de falar pra gente.
+  [120.42-123.42] S0 Competitividade é o que a Liga Monstro Kombat traz.
+  [124.02-124.44] S0 Oss.
+
 ## entrevista lmc 2 rangel farias  (duration: 2m 27.9s, 30 phrases)
   [001.78-007.86] S0 Mestre Rangel Faria, cara, que honra poder tá aqui falando com o senhor, tá? Todo respeito. E
   [009.00-010.18] S0 William Rottweiler,
