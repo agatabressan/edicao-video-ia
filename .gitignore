@@ -15,3 +15,7 @@ edit/clips_preview/
 edit/verify/
 edit/edit/verify/
 EDITADOS/
+
+# Credenciais OAuth do YouTube -- NUNCA versionar
+youtube-upload/credentials/
+youtube-upload/node_modules/
