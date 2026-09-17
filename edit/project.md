@@ -297,3 +297,44 @@ denoise nr=8/no nf, no burned-in subtitles (YouTube).
 
 **Outstanding:**
 - Awaiting user validation before YouTube upload.
+
+## Session 9 — 2026-09-17 (correction pass — grade)
+
+**Strategy:** User validation feedback: color looked "apagada"/washed out on
+this cut, but flagged uncertainty about whether the standing saturation=0.85
+instruction was even the right call for this footage — a good instinct,
+and correct.
+
+**Decisions:**
+- Compared a raw frame against the graded one: this shoot's lighting was
+  already much less saturated/punchy than the Sthanley shoot (dimmer,
+  grayer greens), so subtracting another 15% saturation on top of already
+  muted footage read as flat, not "corrected."
+- Tested saturation 1.00/1.10/1.20 plus the chosen 1.15 against a sample
+  frame before touching the full render (per the skill's grade philosophy
+  — reason from a frame, don't apply a fixed preset blindly). 1.15 with
+  contrast bumped to 1.08 made the venue's green read vivid/professional
+  while skin tones stayed natural — no hue shift toward red like the
+  Sthanley case.
+- Re-extracted both interview segments with the new grade (cut points
+  unchanged — this was a grade-only fix), re-concatenated with the
+  already-normalized vignette segment, spot-checked the new render's
+  color. Replaced `EDITADOS/entrevista lmc 2 evangelista cyborg -
+  editado.mp4` in place.
+- Rewrote the saturation guidance in `CLAUDE.md`: it's explicitly no
+  longer a fixed default value — it's a per-shoot judgment call, tested
+  against a sample frame each time, with 0.85 and 1.15 recorded as two
+  real data points from two different lighting setups, not two
+  competing "correct" defaults.
+
+**Reasoning log:**
+- The user's own uncertainty ("não sei se a instrução... foi diminuir a
+  saturação no original") was the right question to ask — a value copied
+  forward from the previous interview's fix without re-checking against
+  the new footage is exactly the kind of unverified carry-over that
+  causes this sort of regression. Worth remembering as a general pattern:
+  numeric grade defaults should be re-validated per source, not
+  inherited silently.
+
+**Outstanding:**
+- Awaiting user validation of the re-graded cut before YouTube upload.
