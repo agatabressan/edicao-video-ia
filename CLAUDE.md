@@ -70,6 +70,7 @@ Considerar mudar o app OAuth de "Testing" pra "Em produção" no Google Cloud Co
 **Terminologia e metadados de publicação (YouTube):**
 - Usar **"cage"**, nunca "ringue" — a LMC luta em cage, não em ringue.
 - O nome de ringue do lutador é **"Sthanley 'O Maskara'"** — grafia com K, sem acento, validada com o próprio atleta. Não "normalizar" para "Máscara".
+- **Privacidade padrão: `unlisted` (não listado).** Só publicar como `public` se o usuário pedir explicitamente. `upload.js` já usa `unlisted` como fallback se o `metadata.json` não especificar `privacyStatus`, mas montar o metadata já com `"privacyStatus": "unlisted"` explícito por clareza.
 - **A assinatura padrão do canal (links de redes sociais, WhatsApp, contato) NÃO é confiável via upload por API.** Esse preenchimento automático é um recurso da tela de upload do YouTube Studio (pré-preenche a caixa de descrição), não algo aplicado pelo servidor a uploads via API — pode não aparecer, aparecer com atraso, ou duplicar se for colada manualmente por cima. **Sempre incluir o bloco de assinatura explicitamente na descrição enviada pela API**, não deixar pra confiar no automático. Texto padrão:
   ```
   -------

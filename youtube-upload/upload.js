@@ -34,7 +34,7 @@ const {
   description = '',
   tags = [],
   categoryId = '17',
-  privacyStatus = 'private',
+  privacyStatus = 'unlisted',
 } = meta;
 
 if (!title) {
