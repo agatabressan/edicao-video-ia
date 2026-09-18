@@ -58,6 +58,15 @@ Feedback recolhido na validação de cada corte — aplicar como padrão desde o
 **Backup do bruto:**
 - Só apagar o arquivo bruto depois que o corte validado estiver publicado no YouTube E salvo no Drive da Liga Monstro — ver aviso na seção "Editing brief" acima.
 
+**⚠️ REGRA OBRIGATÓRIA — verificar o canal antes de TODA publicação/atualização no YouTube, sem exceção:**
+Isso já causou publicação no canal errado DUAS vezes (entrevistas do Cyborg e do Marcelo do Ó), mesmo já tendo dado certo numa sessão anterior. O token salvo (`credentials/token-youtube.json`) pode reverter pro canal errado silenciosamente entre sessões (ex.: expiração do token em modo "Testing" do Google Cloud — 7 dias — forçando um re-login que, se não seguir a instrução abaixo, cai na conta errada por padrão). Portanto, **em toda sessão nova, antes de rodar `upload.js` ou qualquer `videos.update`, rodar**:
+```bash
+node youtube-upload/check-channel.js youtube
+```
+O script já falha (`exit 1`) e avisa se o canal não for "LMC | Liga Monstro Combate" (ID `UClGFqfpNtUpUD1v51mw3VbQ`). Se der errado (ou o token não existir/expirou), rodar `node auth.js youtube` e, na tela de escolha de conta do Google, selecionar **"Liga Monstros" (Conta de marca)** — nunca a conta com e-mail, que sempre resolve pro canal errado. Nunca pular essa checagem só porque "já funcionou antes".
+
+Considerar mudar o app OAuth de "Testing" pra "Em produção" no Google Cloud Console pra eliminar a expiração de 7 dias na raiz (oferecido ao usuário, ainda não confirmado/feito).
+
 **Terminologia e metadados de publicação (YouTube):**
 - Usar **"cage"**, nunca "ringue" — a LMC luta em cage, não em ringue.
 - O nome de ringue do lutador é **"Sthanley 'O Maskara'"** — grafia com K, sem acento, validada com o próprio atleta. Não "normalizar" para "Máscara".
@@ -78,11 +87,13 @@ Feedback recolhido na validação de cada corte — aplicar como padrão desde o
   👽 LIGA MONSTRO COMBATE: A NOVA ERA DO MMA NO BRASIL!
   ```
 - `videos.update` (para corrigir um vídeo já publicado) precisa do escopo `youtube.force-ssl`, que `youtube.upload` + `youtube.readonly` sozinhos não cobrem — já adicionado em `auth.js`.
+- **CRÍTICO — autenticação do YouTube é uma Conta de marca, separada da conta de e-mail:** a conta de login (`contato@ligamonstrocombate.com.br`) administra duas identidades do YouTube: **"Liga Monstros"** (Conta de marca = canal "LMC | Liga Monstro Combate", o correto) e o canal pessoal da própria conta ("Universo Monstro", **errado**, não usar). Selecionar a conta com e-mail na tela de login SEMPRE resolve pra "Universo Monstro" via `channels.list(mine=true)`, mesmo definindo LMC como canal padrão no youtube.com — isso não muda esse comportamento da API. **Só selecionar "Liga Monstros" na tela de escolha de conta garante o canal certo.** Depois de qualquer login, sempre confirmar com `channels.list({mine:true})` antes de publicar ou atualizar qualquer vídeo — nunca assumir.
+- **Contas de marca NÃO têm acesso ao Google Drive** (nem a outros serviços do Google além do YouTube). Pedir o escopo `drive` no mesmo login que pede escopos do YouTube quebra a seleção de "Liga Monstros" com o erro "Serviço indisponível". Por isso o YouTube e o Drive usam **logins e tokens completamente separados**: `node auth.js youtube` → `credentials/token-youtube.json` (selecionar "Liga Monstros"), `node auth.js drive` → `credentials/token-drive.json` (selecionar a conta com e-mail, "LMC"). Nunca tentar unificar os dois num único login.
 - Sempre incluir tags de vídeo (title/description/tags) cobrindo as variações "Liga Monstro Combate", "LMC" e "LMC 2" para SEO — não depender só do título.
 - Se algo for dito errado durante a entrevista (ex.: nome de adversário trocado), não é motivo pra recortar/re-editar — sinalizar a correção na descrição do YouTube como uma "errata" em vez de mexer no corte.
 - **Telas finais (end screens) não são configuráveis pela API do YouTube** — precisam ser adicionadas manualmente pelo usuário no YouTube Studio (Conteúdo → vídeo → Editor → Tela final) depois da publicação.
 
 **Backup final no Drive:**
 - Depois de publicado no YouTube, o corte final também é enviado pra uma pasta do Google Drive da Liga Monstro (arquivo definitivo do projeto).
-- Script: `youtube-upload/drive-upload.js <arquivo> <folderId>` — usa o mesmo token OAuth do YouTube, com o escopo `https://www.googleapis.com/auth/drive` adicionado em `auth.js`.
+- Script: `youtube-upload/drive-upload.js <arquivo> <folderId>` — usa `credentials/token-drive.json` (login separado do YouTube, ver acima).
 - **O ID/link da pasta do Drive NUNCA vai neste repositório** (é público) — fica salvo só localmente em `youtube-upload/credentials/drive-folder.txt` (já coberto pelo `.gitignore` da pasta `credentials/`). Se essa pasta não existir numa sessão nova, pedir o link ao usuário de novo.

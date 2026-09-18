@@ -374,3 +374,162 @@ backup step (previously always left pending/manual).
   public, the specific destination is not.
 
 **Outstanding:** none for this interview — full pipeline complete.
+
+## Session 11 — 2026-09-17 (Marcelo do Ó — first edit)
+
+**Strategy:** Third raw interview, downloaded from a Google Drive link
+(2.46GB `DJI_20260828164615_0707_D.MP4`, same direct-curl-to-disk approach
+as Cyborg's session), renamed to `entrevista lmc 2 marcelo do o.MP4`.
+Unlike prior interviews this is a 3-person RedeTV studio segment: host
+("Jhon") + Marcelo do Ó + a guest commentator (Lucas Rodrigues) who joins
+naturally partway through. User confirmed keeping Lucas's segment in the
+cut (not trimming him out), crediting him by name in the YouTube
+description, but titling the video around Marcelo since his name draws
+more attention. User also declared a standing project-wide rule: no video
+in this project ever needs burned-in subtitles (YouTube-only delivery) —
+recorded to cross-session memory so this stops being asked per-interview.
+
+**Decisions:**
+- Transcript scan found no retakes/flubs/false starts to cut — the
+  handful of "cut-off" words in the transcript (host's "D'O-",
+  "preparativos-", "lá-") are natural playful interruptions between the
+  three people on set, not mistakes, so kept as-is.
+- Single cut: opening trimmed from raw t=0 to 1.08s (first spoken word
+  "Olha" starts at 1.28s, preceded only by ~1.2s of background
+  conversation/crosstalk — trimmed per the first-spoken-word rule), and
+  closing trimmed at 169.4s (last word "você." ends 169.3s, followed by
+  trailing off-topic chatter that was cut). No internal cuts — confirmed
+  via word-level gap scan that the largest internal gap in the whole
+  interview is 0.94s, all natural conversational pauses, nothing to trim.
+- Grade: tested saturation 0.85/1.00/1.15 against a sample frame (per the
+  no-fixed-default rule) — this shoot's professional TV-studio lighting
+  was already well-balanced (unlike Sthanley's oversaturated stage or
+  Cyborg's flat/gray one), so neither extreme was needed. Landed on
+  saturation=1.10, contrast=1.07 (`eq=contrast=1.07:brightness=0.0:
+  saturation=1.10,curves=master='0/0 0.25/0.23 0.75/0.77 1/1'`) — a small
+  bump for vividness without shifting skin tones, confirmed via a
+  face-crop comparison at all three test values.
+- Denoise: `highpass=f=80,afftdn=nr=8` (no `nf` override), matching the
+  established default.
+- Reused the already-normalized vignette segment
+  (`clips_graded/sth_seg_vinheta.mp4`) again instead of re-rendering.
+- Output: `EDITADOS/entrevista lmc 2 marcelo do o - editado.mp4`, final
+  duration 169.96s (168.33s interview + 1.6s vignette).
+- Self-eval via `timeline_view` on the rendered output (start, vignette
+  join, one mid-point) passed on the first pass — no audio pops, no
+  visual jumps, grade consistent throughout.
+
+**Reasoning log:**
+- This is the first interview from this shoot with more than two people
+  on camera — treated it the same as a single continuous take (no
+  special multi-speaker handling needed) since it's one uninterrupted
+  scene, not separate takes to pick between.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload + Drive backup.
+- Raw file (`entrevista lmc 2 marcelo do o.MP4`, 2.46GB) not yet deleted —
+  per standing rule, only after validation + YouTube publish + Drive
+  backup.
+
+## Session 12 — 2026-09-17 (Marcelo do Ó — publication + Drive backup)
+
+**Strategy:** User validated the cut with "pode subir no youtube". Drafted
+title/description/tags and confirmed the copy with the user before
+publishing (same double-check habit as the Sthanley/Cyborg sessions),
+then completed the full pipeline end-to-end in one pass, same as
+Cyborg's session 10.
+
+**Decisions:**
+- Title used Marcelo do Ó's name (per explicit user instruction — his
+  name draws more attention than Lucas Rodrigues'), credited Lucas by
+  name in the description and tags, mentioned the Crown Fight rule format
+  and the fighters named in the interview (Marlon Moraes, Rony Jason,
+  William Rottweiler) for SEO/context.
+- Published as `public`, categoryId 17 (Sports) — same pattern as the
+  other two interviews. Published: https://youtu.be/HN7HlX7NGFk
+- Backed up the final cut to the LMC Drive folder via
+  `drive-upload.js` (folder ID already on file from the Cyborg session,
+  no re-auth needed) — file id `1LydWAjzwbpUbCkGY7q944fYIWdXJET6k`.
+- This closes the full pipeline for Marcelo do Ó: edited → validated →
+  published to YouTube → backed up to Drive, without any raw file
+  deleted prematurely.
+
+**Reasoning log:**
+- Reused the OAuth token and Drive folder ID from the Cyborg session
+  without any re-auth — confirms the credential setup is now durable
+  across interviews, not something to redo each time.
+
+**Outstanding:**
+- Raw file (`entrevista lmc 2 marcelo do o.MP4`, 2.46GB) still on disk —
+  ask the user before deleting it, now that validation + YouTube +
+  Drive are all done (per the standing CLAUDE.md rule).
+
+## Session 13 — 2026-09-18 (wrong-channel incident + auth architecture fix)
+
+**Strategy:** New conversation (fresh session). User asked to upload the
+already-edited Marcelo do Ó cut. Before doing so, cross-checked session
+12's claim of a completed YouTube publish against the live API — the
+video ID it recorded (`HN7HlX7NGFk`) came back "not found." User
+confirmed: it *had* published, but to the wrong channel (Universo
+Monstro), and they deleted it manually. This means session 12's
+channel-verification step either wasn't actually run, or was run against
+a token that had already silently reverted to the wrong channel between
+sessions.
+
+**Root cause, found this session:** the login account
+(`contato@ligamonstrocombate.com.br`) manages two YouTube identities —
+the Brand Account "Liga Monstros" (= channel "LMC | Liga Monstro
+Combate", correct) and the account's own default channel ("Universo
+Monstro", wrong). Selecting the plain email account at Google's login
+chooser *always* resolves `channels.list(mine=true)` to Universo
+Monstro, regardless of any "default channel" preference set on
+youtube.com — that setting doesn't affect this API behavior. Only
+explicitly selecting "Liga Monstros" at the account-chooser screen
+works. Separately: **Brand Accounts have no Drive access**, so the
+combined OAuth request (YouTube scopes + `drive` scope in one login) hit
+"Serviço indisponível" whenever "Liga Monstros" was selected — this is
+why earlier sessions kept defaulting back to the email account (it was
+the only one that didn't error), which is *also* the wrong choice, just
+silently wrong instead of loudly wrong.
+
+**Decisions:**
+- Split authentication into two independent logins/tokens:
+  `node auth.js youtube` → `credentials/token-youtube.json` (select
+  "Liga Monstros"), `node auth.js drive` → `credentials/token-drive.json`
+  (select the email account "LMC"). `auth.js`, `upload.js`, and
+  `drive-upload.js` all updated accordingly. The old combined
+  `credentials/token.json` is obsolete.
+- Verified the existing Drive backup from session 12
+  (`1LydWAjzwbpUbCkGY7q944fYIWdXJET6k`) independently via `drive.files.get`
+  before trusting it — confirmed it's real, correct folder, right size,
+  not trashed. Drive was never actually broken; only YouTube was.
+- Re-published Marcelo do Ó after two explicit channel checks (before
+  and after upload) — confirmed on `LMC | Liga Monstro Combate`. New
+  video: https://youtu.be/OTfvfxfkx58. Updated the stale/wrong link in
+  the public README.
+- Added a loud, unmissable "⚠️ REGRA OBRIGATÓRIA" block at the top of
+  the YouTube section in `CLAUDE.md`: verify the channel via
+  `channels.list(mine=true)` before every single publish/update, every
+  session, no exceptions — specifically because this already silently
+  regressed once after working correctly in an earlier session.
+
+**Reasoning log:**
+- Don't trust a prior session's own log as proof an action succeeded —
+  verify against the live system (the YouTube API itself) before
+  building on top of it, especially for anything public-facing/
+  hard-to-reverse. This incident happened *because* a previous session's
+  self-reported "published successfully, channel confirmed" wasn't
+  actually true (or stopped being true silently).
+- The OAuth app is still in Google Cloud "Testing" mode, meaning
+  refresh tokens expire every 7 days — flagged again as the likely
+  trigger for the silent regression (a forced re-login without this
+  session's now-documented guidance would default to the wrong account).
+  Moving the app to "In production" would remove this recurring risk at
+  the root; offered to the user again, not yet done.
+
+**Outstanding:**
+- Consider moving the OAuth app to "In production" in Google Cloud to
+  stop the 7-day token expiry from forcing repeat re-logins.
+- Raw files for Cyborg and Marcelo do Ó are still on disk pending an
+  explicit decision to delete them (all three pipeline steps are done
+  for both).

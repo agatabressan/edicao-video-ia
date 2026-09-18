@@ -7,7 +7,7 @@ const path = require('path');
 const { google } = require('googleapis');
 
 const CREDENTIALS_PATH = path.join(__dirname, 'credentials', 'client_secret.json');
-const TOKEN_PATH = path.join(__dirname, 'credentials', 'token.json');
+const TOKEN_PATH = path.join(__dirname, 'credentials', 'token-youtube.json');
 
 const [, , filePath, metadataPath] = process.argv;
 

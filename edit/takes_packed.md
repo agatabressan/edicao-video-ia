@@ -27,6 +27,38 @@ Use `[start-end]` ranges to address cuts in the EDL.
   [120.42-123.42] S0 Competitividade é o que a Liga Monstro Kombat traz.
   [124.02-124.44] S0 Oss.
 
+## entrevista lmc 2 marcelo do o  (duration: 2m 50.6s, 30 phrases)
+  [000.04-002.98] S0 ([conversas]) Olha quem tá aqui, Marcelo D'O-
+  [003.10-004.12] S1 Opa, sou eu, seu Jhon
+  [004.40-006.62] S0 Ê, o cara tá aqui ó, ensaiando nos preparativos-
+  [006.64-006.66] S1 Ah, aqui ó.
+  [006.70-008.22] S0 Porque é muita responsabilidade, né?
+  [008.50-014.96] S1 Opa, e são doze lutas, né? Tem que treinar, liberar a voz também, aquecer a corda vocal, porque a gente vai até a madrugada, né?
+  [015.22-020.06] S0 É isso aí, Marcelo. Vem cá, me diz uma coisa, como é que tá essa expectativa agora, né, do retorno do MMA
+  [020.60-021.98] S0 pra, pra RedeTV, né?
+  [022.72-041.44] S1 Aqui sempre foi a casa do MMA. Eu quando entrei aqui na RedeTV, treze anos atrás, foi pra fazer exatamente isso num outro evento, que era feito aqui, né, então pra mim também é especial esse momento. E eu acho que nada melhor, sendo a casa do MMA, de preparar uma sala bonita prum evento, como a gente preparou esse cage, esse estúdio aqui pra isso.
+  [042.04-053.16] S1 E um produto de televisão, né? Pra, pra que as pessoas em casa compreendam o esporte, entendam essa regra nova do Crown Fight, apresentar uma coisa que é além do esporte, mas também entretenimento. Então,
+  [053.74-056.28] S1 a RedeTV fez tudo que a gente imaginava,
+  [056.82-060.98] S1 como alguém que preza pelo esporte faz. E aqui a gente tem essa,
+  [061.48-065.30] S1 essa possibilidade, espaço e tecnologia pra mostrar aquilo que a gente tem de melhor.
+  [065.30-067.30] S0 ([riso]) Que maravilha. Então hoje,
+  [068.24-070.12] S0 a porrada vai comer, o pau vai quebrar.
+  [070.16-070.28] S1 Vai.
+  [070.34-072.10] S0 E a gente vai tá aqui de pertinho acompanhando tudo isso.
+  [072.18-078.10] S1 É isso, eu tava falando com o Lucas Rodrigues, nosso comentarista aqui, que esse card aqui está melhor do que o card de Curitiba.
+  [078.64-079.80] S1 Então quem não viu lá-
+  [080.10-080.40] S0 Ó!
+  [080.42-084.64] S1 Pode se preparar, que aqui cê vai ter um evento ainda melhor do que foi antes da Copa do Mundo.
+  [084.86-091.06] S0 E Lucas, vem cá, já que esse card tá tão especial assim, você tá na torcida por algum atleta, alguém que vai lutar?
+  [091.50-123.36] S2 Cara, eu tô na torcida por todos os brasileiros, obviamente. Vamo ter a luta principal, né, o Marlon Moraes contra o Maximiliano El Demônio. Obviamente, nesse confronto Brasil e Argentina, a gente tá torcendo pro Brasil, e o Marlon é o Marlena do esporte. Vai ter o retorno do Rony Jason, né cara, atleta do UFC, campeão do primeiro TUF. Glayco França lutando com o William Rottweiler, que vai ser uma guerra também. Então assim, tô muito empolgado, muita luta boa, muitos prospectos, né, a galera nova aí no MMA tá começando também, vai ter esse palco espetacular, né? Esse canhão que é a RedeTV pra eles estarem mostrando o seu trabalho. Então é isso, o MMA tá de volta pra sua casa e tô muito feliz de fazer parte disso.
+  [123.64-125.80] S0 E essa novidade aí do Crown Fight? É
+  [126.60-127.52] S0 uma coisa diferente, né?
+  [127.90-132.68] S2 Cara, diferente e muito empolgante. Eu acho que o Crown Fight, as regras do Crown Fight, elas vão fazer com que
+  [133.20-148.78] S2 as lutas fiquem mais empolgantes, né. Red zone, os caras não podem entrar no clinch, não podem ir pro chão, tem que ficar o tempo todo ali trocando porrada, que no fim, né Marcelo, é o que o pessoal gosta de ver. Trocação franca, então vai ter bastante aí, né, entre o, o Raian Tupã e o Ryan Polaco. Então vai ser sensacional. Então fiquem de olho, que a partir das
+  [149.28-162.16] S2 sete, né, no YouTube da RedeTV e das dez horas da noite na RedeTV, no canal, vamo tá lá na telinha pra trazer esse card espetacular. Como o Marcelo falou, tá melhor que a primeira edição, a próxima vai ser melhor, e melhor, e melhor, porque isso é o Liga Monstro, sempre surpreendendo.
+  [162.58-169.30] S0 É isso aí, Liga Monstro, combate sempre surpreendendo. E agora, na tela da RedeTV, mensalmente pra você.
+  [169.34-170.64] S1 ([conversas])
+
 ## entrevista lmc 2 rangel farias  (duration: 2m 27.9s, 30 phrases)
   [001.78-007.86] S0 Mestre Rangel Faria, cara, que honra poder tá aqui falando com o senhor, tá? Todo respeito. E
   [009.00-010.18] S0 William Rottweiler,

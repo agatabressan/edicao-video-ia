@@ -9,8 +9,10 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 | Rangel Farias | [YouTube](https://youtu.be/c3HtwDRorsw) | não registrado¹ | não cronometrado¹ |
 | Sthanley "O Maskara" | [YouTube](https://youtu.be/k6YWMREPOtc) | Claude Sonnet 5 | ~37min (18min corte inicial + 19min de ajustes pós-validação) |
 | Evangelista Cyborg | [YouTube](https://youtu.be/zjY9A4tsqoI) | Claude Sonnet 5 | ~43min (19min corte inicial + 24min de ajuste de cor pós-validação) |
+| Marcelo do Ó | [YouTube](https://youtu.be/OTfvfxfkx58) | Claude Sonnet 5 | não cronometrado² |
 
 ¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
+² Tempo de edição não cronometrado nesta sessão (execução em segundo plano intercalada com outras tarefas).
 
 ## Processo
 

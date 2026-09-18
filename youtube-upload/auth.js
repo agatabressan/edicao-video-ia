@@ -1,14 +1,40 @@
-// Login unico com a conta do YouTube. Rode: node auth.js
-// Abre o navegador para voce autorizar e salva o token em credentials/token.json
+// Login com a conta do YouTube OU do Drive (sao contas diferentes -- Contas de
+// marca do YouTube nao tem acesso a servicos como o Drive).
+// Uso: node auth.js youtube   -> salva credentials/token-youtube.json
+//      node auth.js drive     -> salva credentials/token-drive.json
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
 const { google } = require('googleapis');
 
 const CREDENTIALS_PATH = path.join(__dirname, 'credentials', 'client_secret.json');
-const TOKEN_PATH = path.join(__dirname, 'credentials', 'token.json');
 const PORT = 53682;
 const REDIRECT_URI = `http://localhost:${PORT}/oauth2callback`;
+
+const TARGETS = {
+  youtube: {
+    tokenFile: 'token-youtube.json',
+    scopes: [
+      'https://www.googleapis.com/auth/youtube.upload',
+      'https://www.googleapis.com/auth/youtube.readonly',
+      'https://www.googleapis.com/auth/youtube.force-ssl',
+    ],
+    hint: 'Na tela de escolha de conta, selecione a CONTA DE MARCA do canal (ex: "Liga Monstros"), nao a conta normal.',
+  },
+  drive: {
+    tokenFile: 'token-drive.json',
+    scopes: ['https://www.googleapis.com/auth/drive'],
+    hint: 'Na tela de escolha de conta, selecione a CONTA NORMAL (com e-mail, ex: "LMC"), nao a conta de marca -- contas de marca nao tem Drive.',
+  },
+};
+
+const target = process.argv[2];
+if (!TARGETS[target]) {
+  console.error('Uso: node auth.js youtube | drive');
+  process.exit(1);
+}
+const { tokenFile, scopes, hint } = TARGETS[target];
+const TOKEN_PATH = path.join(__dirname, 'credentials', tokenFile);
 
 if (!fs.existsSync(CREDENTIALS_PATH)) {
   console.error(`Nao encontrei ${CREDENTIALS_PATH}`);
@@ -24,15 +50,12 @@ const oauth2Client = new google.auth.OAuth2(client_id, client_secret, REDIRECT_U
 const authUrl = oauth2Client.generateAuthUrl({
   access_type: 'offline',
   prompt: 'consent',
-  scope: [
-    'https://www.googleapis.com/auth/youtube.upload',
-    'https://www.googleapis.com/auth/youtube.readonly',
-    'https://www.googleapis.com/auth/youtube.force-ssl',
-    'https://www.googleapis.com/auth/drive',
-  ],
+  scope: scopes,
 });
 
-console.log('Abra este link, faca login e autorize:\n');
+console.log(`--- Login para: ${target} ---`);
+console.log(hint);
+console.log('\nAbra este link, faca login e autorize:\n');
 console.log(authUrl);
 console.log('\nAguardando autorizacao...');
 
@@ -46,7 +69,6 @@ const server = http.createServer(async (req, res) => {
   fs.mkdirSync(path.dirname(TOKEN_PATH), { recursive: true });
   fs.writeFileSync(TOKEN_PATH, JSON.stringify(tokens, null, 2));
   console.log(`Token salvo em ${TOKEN_PATH}`);
-  console.log('Pronto -- ja da pra usar upload.js.');
 });
 
 server.listen(PORT);
