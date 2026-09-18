@@ -533,3 +533,114 @@ silently wrong instead of loudly wrong.
 - Raw files for Cyborg and Marcelo do Ó are still on disk pending an
   explicit decision to delete them (all three pipeline steps are done
   for both).
+
+## Session 14 — 2026-09-18 (Renata e Jamil Achlei — first edit)
+
+**Strategy:** Fourth raw interview, downloaded from a Google Drive link the
+user shared directly in chat (2.98GB `DJI_20260827161849_0694_D.MP4`, file
+ID `10qRm-7oLEMrLOlFqvmjR99pwm5sf-kjH`, owner `contato@ligamonstrocombate.com.br`)
+via a new `youtube-upload/drive-download.js` helper (streams via the Drive
+API using the existing `token-drive.json`, avoiding both a multi-GB base64
+MCP round-trip and depending on the file being publicly link-shared).
+Renamed to `entrevista lmc 2 renata e jamil achlei.MP4` per convention.
+Single continuous interview: host + Renata Achlei + Jamil Achlei (LMC
+president), ~3m27s raw, applied all accumulated lessons from the start.
+
+**Decisions:**
+- No retakes/mistakes found in the transcript — single clean continuous
+  take, host alternating between Renata and Jamil.
+- One cut: opening trimmed to 1.56s (200ms before first word "É" at
+  1.76s); tail needed no trim — last word "Gracias" ends at 206.48s
+  against a 206.51s raw duration, essentially zero dead air at the close.
+- Evaluated four internal gaps ≥1s (1.06s, 1.22s, 1.04s, 1.38s) and left
+  them uncut — each is the host's own dramatic-pause delivery style or a
+  reaction beat (laugh), not wasted dead air, consistent with the
+  Cyborg/Marcelo do Ó sessions' judgment call not to over-trim natural
+  rhythm in a single continuous take.
+- Grade: tested saturation 0.85/1.00/1.15 against a sample frame (per the
+  no-fixed-default rule) — stage lighting here is intensely green (LMC
+  brand backdrop) but well-exposed, not as extreme as Sthanley's
+  oversaturated case. Landed on saturation=1.00, contrast=1.07
+  (`eq=contrast=1.07:brightness=0.0:saturation=1.00,curves=master='0/0
+  0.25/0.23 0.75/0.77 1/1'`) — 1.15 started pushing skin tones toward
+  orange on a face-crop comparison, 1.00 kept the green backdrop vivid
+  with natural skin.
+- Denoise: `highpass=f=80,afftdn=nr=8` (no `nf` override), matching the
+  established default.
+- Reused the already-normalized vignette segment
+  (`clips_graded/sth_seg_vinheta.mp4`) instead of re-rendering it.
+- Extracted the graded/denoised interview segment directly to the shared
+  target spec (h264, 3840x2160, 60000/1001 fps, AAC stereo 48kHz) via a
+  one-off ffmpeg command (not render.py, which defaults to a 1080p scale)
+  so it would concat losslessly with the reused vignette segment.
+- Output: `EDITADOS/entrevista lmc 2 renata e jamil achlei - editado.mp4`,
+  final duration 206.54s (204.92s interview + 1.6s vignette).
+- Self-eval via `timeline_view` on the rendered output (start, vignette
+  join, one mid-point) passed on the first pass — no audio pops, no
+  visual jumps, grade consistent throughout.
+
+**Reasoning log:**
+- The concat demuxer's file-list on Windows needs native `C:\...` paths
+  written into the list file itself — POSIX-style `/c/Users/...` paths
+  (which Git Bash transparently translates for direct CLI args) are NOT
+  translated when they're just text content inside a file ffmpeg reads,
+  so the concat step failed twice before switching to `cygpath -w`.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload + Drive backup.
+- Raw file (`entrevista lmc 2 renata e jamil achlei.MP4`, 2.98GB) not yet
+  deleted — per standing rule, only after validation + YouTube publish +
+  Drive backup.
+- Raw files for Cyborg and Marcelo do Ó also still pending that same
+  three-step sign-off.
+
+## Session 15 — 2026-09-18 (Renata e Jamil Achlei — publication)
+
+**Strategy:** User approved the session 14 cut and said "pode publicar."
+Followed the mandatory channel-check rule: verified the channel with
+`check-channel.js youtube` both before and after the upload.
+
+**Decisions:**
+- Channel verified as `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  before upload and again after — both confirmed correct.
+- Metadata (`renata_jamil_metadata.json`): title focuses on both
+  interviewees + the "futuro da LMC" hook; description covers the new
+  TV-studio setup, Jamil's international ambitions, Renata's role, the
+  opening for women in the sport, and the season-3 teaser — plus the
+  standard signature block written explicitly into the API description
+  (not relied on the Studio auto-fill). Tags cover "Liga Monstro
+  Combate"/"LMC"/"LMC 2" plus both names. `privacyStatus: "unlisted"`
+  per the project's default-privacy rule (user didn't ask for public).
+- Published: https://youtu.be/Voc34ljvLb0
+
+**Outstanding:**
+- Drive backup of the final cut still pending (need the Drive folder ID
+  from `youtube-upload/credentials/drive-folder.txt` — check it exists
+  this session before asking the user again).
+- Raw file (`entrevista lmc 2 renata e jamil achlei.MP4`, 2.98GB) still
+  not deleted — Drive backup is the last of the three required steps.
+- End screen still needs manual setup in YouTube Studio (not
+  API-configurable).
+
+## Session 16 — 2026-09-18 (Renata e Jamil Achlei — Drive backup)
+
+**Decisions:**
+- Uploaded the final cut to the Liga Monstro Drive folder
+  (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`) via `drive-upload.js`.
+- Verified independently via `drive.files.get` (not just trusting the
+  upload script's own success log) — confirmed name, correct parent
+  folder, not trashed, and size matches the local file exactly
+  (1,202,857,308 bytes both sides).
+  Drive file: https://drive.google.com/file/d/13tADwqNM09uW5ZccXvLZ2Bkn_uynejNW/view
+
+**Outstanding:**
+- All three gating steps for this interview are now done: cut validated
+  by the user, published to YouTube (unlisted,
+  https://youtu.be/Voc34ljvLb0), and backed up to Drive. Raw file
+  (`entrevista lmc 2 renata e jamil achlei.MP4`, 2.98GB) can be deleted
+  once the user explicitly confirms — not done automatically, per the
+  standing rule.
+- End screen still needs manual setup in YouTube Studio.
+- Raw files for Cyborg and Marcelo do Ó are also fully cleared for
+  deletion (all three steps done for both) but still on disk pending
+  explicit confirmation.
