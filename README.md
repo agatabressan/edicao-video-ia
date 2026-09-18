@@ -10,9 +10,11 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 | Sthanley "O Maskara" | [YouTube](https://youtu.be/k6YWMREPOtc) | Claude Sonnet 5 | ~37min (18min corte inicial + 19min de ajustes pós-validação) |
 | Evangelista Cyborg | [YouTube](https://youtu.be/zjY9A4tsqoI) | Claude Sonnet 5 | ~43min (19min corte inicial + 24min de ajuste de cor pós-validação) |
 | Marcelo do Ó | [YouTube](https://youtu.be/OTfvfxfkx58) | Claude Sonnet 5 | não cronometrado² |
+| Renata e Jamil Achlei | [YouTube](https://youtu.be/Voc34ljvLb0) (não listado) | Claude Sonnet 5 | ~34min³ |
 
 ¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
 ² Tempo de edição não cronometrado nesta sessão (execução em segundo plano intercalada com outras tarefas).
+³ Reconstruído via timestamp dos arquivos gerados (download → corte final pronto), não por cronômetro ao vivo — a partir desta edição, o tempo passa a ser cronometrado explicitamente em toda sessão (ver CLAUDE.md).
 
 ## Processo
 

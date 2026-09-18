@@ -91,6 +91,58 @@ Use `[start-end]` ranges to address cuts in the EDL.
   [147.70-148.74] S1 Valeu, tadinho.
   [149.24-149.66] S1 Obrigado
 
+## entrevista lmc 2 renata e jamil achlei  (duration: 3m 24.7s, 50 phrases)
+  [001.76-007.90] S0 É isso sim, seus monstruosos. Eu tô aqui com eles, o casal monstro, ééé.
+  [008.56-009.70] S0 Jamil, nosso patrão
+  [010.28-015.46] S0 e a patroa Renata. Jamil, com todo respeito e licença, vou começar pelas damas, tá bom? ([riso])
+  [015.50-016.54] S1 Sempre, sempre.
+  [016.60-021.66] S0 Até porque não é fácil, né, ocupar um lugar de liderança no cenário do MMA,
+  [022.42-027.36] S0 reunir artes marciais e tá liderando esse time. Renata, que experiência?
+  [027.72-037.82] S1 Nossa senhora, eu tô apaixonada, tô apaixonada. Pra quem gosta de porrada, eu tô exatamente aonde eu quero estar. Curtindo demais ver tudo isso acontecer e desabrochar. Me sinto uma mãe.
+  [038.34-044.50] S0 Ó, uma mãe, né? Afinal de contas, a LMC tem aqui o paizão Jamil. E Jamil-
+  [044.90-045.14] S1 Fala.
+  [045.20-049.10] S0 Segunda edição. E olha o tamanho disso, meu irmão.
+  [049.68-049.68] S1 É.
+  [049.74-051.54] S0 Liga Monstro combate tá ó,
+  [052.20-052.98] S0 ([som de zumbido]) subindo.
+  [053.48-061.12] S1 Graças a Deus. E vai subir mais ainda. Nossos projetos são ambiciosos, porque o Brasil não tem nenhum evento internacional que atinja um grande,
+  [061.86-065.00] S1 o teto internacional. Entre os dez nós não estamos, nenhum evento brasileiro.
+  [065.44-081.82] S0 Organizado, valoriza os atletas, respeita o cenário de combate, traz tudo que um evento precisa ter pra que o atleta performe bem e pra que o público saia satisfeito depois de assistir esses combates. Jamil,
+  [082.52-085.36] S0 e essa segunda edição agora, ela vem com uma novidade,
+  [085.96-088.36] S0 tá sendo realizada dentro de um estúdio de TV.
+  [089.06-091.80] S0 Fala pra gente dessa experiência nova pra Liga Monstro Combate.
+  [092.12-102.06] S1 Cara, esse estúdio vocês vão acompanhar. Sensacional. Ele é feito pra que você em casa aproveite o melhor do MMA, porque a tecnologia aplicada nesse evento vai ser...
+  [102.70-109.30] S1 Não tem no país igual. Então eu tô curtindo muito. Fora também. É, provavelmente fora também não tem. Vai ser muito legal pra acompanhar de casa.
+  [109.94-110.44] S1 Não perca.
+  [111.34-111.82] S0 Mãezona,
+  [112.38-113.22] S0 fala pra gente.
+  [114.28-115.14] S0 Uma profissional,
+  [116.36-116.82] S0 mulher,
+  [117.68-120.26] S0 que queira participar da Liga Monstro Combate,
+  [120.82-124.04] S0 seja ela atleta ou do mercado, né?
+  [124.86-127.02] S0 Qual é a recomendação, qual é o conselho?
+  [128.06-148.64] S1 Galera, portas abertas da LMC pra galera feminina, tá? Aqui, primeiro que nos bastidores a mulherada tá em peso aqui na LMC, tá? Pra vocês saberem, tudo que vocês veem por aí, a grande maioria da galera que tá fazendo são as girls, tá? Girl power. E as lutadoras também, a gente quer muito que você esteja aqui do nosso lado.
+  [149.18-152.78] S1 Venha, porque a mulher também curte esse meio, tá? Não é só homem não.
+  [153.02-153.84] S0 Pera aí, como é que é, Jamil?
+  [154.00-154.18] S1 Porra.
+  [154.24-155.56] S0 Ó, não, spoiler, spoiler. Olha só,
+  [156.14-160.00] S0 ele acabou de me falar aqui no ouvido que na terceira edição... Cê pode falar, Jamil? Pode?
+  [160.26-160.28] S1 Pode.
+  [160.30-160.88] S0 Pode falar.
+  [160.94-161.18] S1 Spoiler.
+  [161.32-167.06] S0 Spoiler, tá, galera? Então vamo nessa. A mãezona vai contar pra gente o que que vai acontecer na terceira edição com elas.
+  [167.46-176.36] S1 A terceira já é a próxima, e é muito rápido. Menos de um mês cês já vão tá vendo, tá? Cinturão feminino e a crown fight vai ser de mulher.
+  [176.94-180.62] S0 Uaaau! Muita monstruosidade. ([riso])
+  [180.64-182.82] S1 Como é que eu faço pra virar ator de to-novela?
+  [182.82-183.50] S0 ([riso]) Ah, que...
+  [184.88-187.10] S0 Boa pinta já é, né? Galã já é, né?
+  [187.60-190.12] S0 Cara, você já é ator da vida real.
+  [190.36-193.06] S1 Deixa, já tá, todo mundo já quer um pedaço do meu marido. Tá bom assim.
+  [193.66-195.30] S0 Viu? É isso, ó. Vou encerrar por aqui, porque
+  [195.80-201.78] S0 monstruosidade nesse casal aqui é o que não falta na Liga Monstro Combate, na Rede TV que você acompanha.
+  [202.38-205.44] S0 Segunda edição, terceira com novidade, e assim vai.
+  [206.22-206.48] S1 Gracias
+
 ## entrevista sthanley o maskara  (duration: 1m 29.6s, 20 phrases)
   [000.52-012.32] S0 ([risos]) É isso sim, ele, Stanley, o Máscara. Moleque brabo, representou na primeira edição da Liga Monstro Combate.
   [012.92-015.86] S0 Levei ele até pra igreja pra rezar, porque ele tava com medo do Sancho,
