@@ -536,6 +536,13 @@ silently wrong instead of loudly wrong.
 
 ## Session 14 — 2026-09-18 (Renata e Jamil Achlei — first edit)
 
+**Tempo de edição:** ~34min (reconstruído via timestamp dos arquivos gerados:
+13:00:31 download concluído → 13:34:02 corte final pronto — não cronometrado
+ao vivo nesta sessão, ~30min dos quais foi só o encode 4K com grade+denoise).
+Usuário sinalizou que "não cronometrado" não pode continuar acontecendo —
+adicionada regra obrigatória em CLAUDE.md pra cronometrar toda sessão daqui
+pra frente, com horário de início/fim anotado explicitamente.
+
 **Strategy:** Fourth raw interview, downloaded from a Google Drive link the
 user shared directly in chat (2.98GB `DJI_20260827161849_0694_D.MP4`, file
 ID `10qRm-7oLEMrLOlFqvmjR99pwm5sf-kjH`, owner `contato@ligamonstrocombate.com.br`)

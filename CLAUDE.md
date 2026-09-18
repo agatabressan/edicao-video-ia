@@ -19,6 +19,8 @@ For each raw interview in this folder, produce a finished cut that:
 
 Ask which raw interview to work on if more than one is present and it isn't specified — filenames follow the pattern `entrevista lmc 2 <interviewee name>.MP4`.
 
+**⚠️ REGRA OBRIGATÓRIA — cronometrar toda edição, sem exceção:** o tempo de edição é uma métrica do processo (ver tabela no README.md) e já ficou como "não cronometrado" em sessões anteriores por falta de disciplina em marcar o horário — isso não pode se repetir. Em toda sessão de edição: anotar o horário de início (quando a transcrição/corte começa de fato, não a conversa de esclarecimento antes) e o horário de entrega do corte pro usuário validar, calcular a diferença, e registrar tanto em `edit/project.md` (seção da sessão) quanto atualizando a coluna "Tempo de edição" do README.md — nunca deixar em branco ou "não cronometrado" por esquecimento.
+
 **Do not delete a raw interview file until its finished cut has been validated AND published to YouTube AND saved to the Liga Monstro Drive.** The raw for the Rangel Farias interview was deleted right after validation, before the Drive backup — it worked out because no re-edit was needed, but if a re-cut or a different aspect-ratio version is ever needed later, that source is gone for good. Ask before deleting any raw file.
 
 ## Source files
