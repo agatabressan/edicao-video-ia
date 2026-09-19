@@ -651,3 +651,612 @@ Followed the mandatory channel-check rule: verified the channel with
 - Raw files for Cyborg and Marcelo do Ó are also fully cleared for
   deletion (all three steps done for both) but still on disk pending
   explicit confirmation.
+
+## Session 17 — 2026-09-18 (Sandribas — first edit)
+
+**Tempo de edição:** ~48min (18:38:31 início da transcrição → 19:26:41
+corte final entregue pra validação, cronometrado ao vivo nesta sessão).
+
+**Strategy:** Sixth raw, downloaded from a Google Drive link the user
+shared directly in chat (`DJI_20260828165331_0709_D.MP4`, 0.86GB, file ID
+`17Y71Q9pJguefWIk-m92q4TaUDllAl1El`) via `youtube-upload/drive-download.js`
+(same separated Drive OAuth/token as prior sessions). Renamed to
+`entrevista lmc 2 sandribas.MP4` per convention.
+
+Unlike every prior raw in this project, this file is a single continuous
+**60s walk-and-talk/hype segment**, not a sit-down Q&A: it opens backstage
+(camera walking past the gym/cage area) while Cláudio and Sandribas are
+already talking, arrives at the on-stage LMC 2 set for the announcer/host
+hype bit, and closes with a Gin Zu (Zero Alcohol) sponsor beat. Flagged
+this divergence to the user before cutting (per the skill's "never assume
+what kind of video it is" rule) rather than applying the usual interview
+checklist blindly.
+
+**Decisions:**
+- User confirmed: cut the backstage walk-up entirely, start only when
+  Cláudio speaks directly to the interviewee; keep the rest (hype bit +
+  sponsor beat) as one simple cut, same output convention as always
+  (`EDITADOS/`, no confirmation needed going forward — user said this is
+  already standard process).
+- Opening cut: start at 3.12s, the word-level gap right after speaker_1's
+  cut-off phrase ("...que gosta-", ends 3.12s) and right before speaker_0's
+  "Olha quem chegou aqui, todo arrumado, todo alinhado, Sandribas." (starts
+  3.32s) — the first moment Cláudio addresses Sandribas directly. Verified
+  via word-level JSON timestamps, not just the phrase-level packed
+  transcript. No tail trim needed — last word ends 59.78s against a
+  60.227s raw duration, only ~450ms of trailing crowd murmur before the
+  file's natural end.
+- No internal cuts: single continuous take, no retakes, no fillers, no
+  dead air ≥400ms anywhere in the body.
+- Grade: tested saturation 0.85/1.00/1.15 on a mid-clip sample frame
+  (stage backdrop here is mostly neutral black/white "THE LED" signage,
+  not a strongly saturated brand color like prior sessions). 1.15 started
+  warming skin tones slightly; landed on saturation=1.00, contrast=1.07
+  (`eq=contrast=1.07:brightness=0.0:saturation=1.00,curves=master='0/0
+  0.25/0.23 0.75/0.77 1/1'`), consistent with the Renata/Jamil baseline.
+- Denoise: `highpass=f=80,afftdn=nr=8` (no `nf` override), the established
+  default.
+- Reused the already-normalized vignette segment
+  (`edit/clips_graded/sth_seg_vinheta.mp4`) instead of re-rendering it —
+  spec already matches (h264, 3840x2160, 60000/1001fps, AAC stereo 48kHz).
+- Extracted the graded/denoised interview segment directly to the shared
+  target spec via a one-off ffmpeg command (libx264 preset fast crf 18,
+  forced `-ac 2 -ar 48000`, 30ms audio fades at both segment edges), then
+  lossless `-c copy` concat with the vignette via a Windows-path (`cygpath
+  -w`) concat list, per the lesson from session 14.
+- Output: `EDITADOS/entrevista lmc 2 sandribas - editado.mp4`, final
+  duration 58.73s (57.11s interview + 1.6s vignette).
+- Self-eval via `timeline_view` on the rendered output (opening cut,
+  vignette join, one mid-point) passed on the first pass — clean start on
+  Cláudio's line, no audio pop or visual glitch at the vignette join,
+  grade consistent and skin tones natural at the mid-point.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload + Drive backup.
+- Raw file (`entrevista lmc 2 sandribas.MP4`, 0.86GB) not yet deleted —
+  per standing rule, only after validation + YouTube publish + Drive
+  backup.
+
+## Session 18 — 2026-09-18 (Sandribas — publication)
+
+**Strategy:** User approved the session 17 cut ("ficou bom, pode subir no
+youtube"). Followed the mandatory channel-check rule: verified the channel
+with `check-channel.js youtube` both before and after the upload.
+
+**Decisions:**
+- Channel verified as `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  before upload and again after — both confirmed correct.
+- Metadata (`sandribas_metadata.json`): title/description frame it as the
+  LMC 2 opening hype bit (Sandribas + Claudião, RedeTV studios), uses
+  "cage" terminology and covers "Liga Monstro Combate"/"LMC"/"LMC 2" for
+  SEO. Left the Gin Zu sponsor beat out of the description copy (not the
+  focus of the video) but did not cut it from the video itself, per the
+  user's earlier confirmation to keep the whole segment as one piece.
+  Signature block written explicitly into the API description (not relied
+  on Studio auto-fill). `privacyStatus: "unlisted"` per the project's
+  default-privacy rule (user didn't ask for public).
+- Published: https://youtu.be/Uz8LkSv3hs8
+
+**Outstanding:**
+- Drive backup of the final cut still pending (need the Drive folder ID
+  from `youtube-upload/credentials/drive-folder.txt`).
+- Raw file (`entrevista lmc 2 sandribas.MP4`, 0.86GB) still not deleted —
+  Drive backup is the last of the three required steps.
+- End screen still needs manual setup in YouTube Studio (not
+  API-configurable).
+
+## Session 19 — 2026-09-18 (Sandribas — Drive backup)
+
+**Decisions:**
+- Uploaded the final cut to the Liga Monstro Drive folder
+  (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`) via `drive-upload.js`.
+- Verified independently via `get_file_metadata` (not just trusting the
+  upload script's own success log) — confirmed name, correct parent
+  folder, not trashed, and size matches the local file exactly
+  (538,253,483 bytes both sides).
+  Drive file: https://drive.google.com/file/d/1EMAw6SbPcCzUBDroR79erryen_R4Bnj_/view
+
+**Outstanding:**
+- All three gating steps for this interview are now done: cut validated
+  by the user, published to YouTube (unlisted,
+  https://youtu.be/Uz8LkSv3hs8), and backed up to Drive. Raw file
+  (`entrevista lmc 2 sandribas.MP4`, 0.86GB) can be deleted once the user
+  explicitly confirms — not done automatically, per the standing rule.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 20 — 2026-09-18 (Rony Jason — first edit)
+
+**Tempo de edição:** ~22min (19:43:55 início da transcrição → 20:06:19
+corte final entregue pra validação, cronometrado ao vivo nesta sessão).
+
+**Strategy:** Seventh raw, downloaded from a Google Drive link the user
+shared directly in chat (`DJI_20260827155052_0686_D.MP4`, 1.40GB, file ID
+`1sUBtlVrMm5dBUpSHgh5QPmHA9PAE9cr7`) via `youtube-upload/drive-download.js`.
+Renamed to `entrevista lmc 2 rony jason.MP4` per convention. Standard
+sit-down interview format on the same LMC 2/RedeTV set (host + Rony Jason),
+~96.9s raw.
+
+**Decisions:**
+- Opening cut: trimmed ~6.5s of off-topic personal banter before the
+  interview starts (talking about someone's daughter, "Maria Clara") —
+  start moved to the host's actual on-topic intro, "É isso sim, aqui ó,
+  fera braba, Rony Jason..." (first word "É" at 6.68s, cut at 6.48s w/
+  200ms pad).
+- Two internal false-start trims (clean self-corrections, standard flub
+  removal per the editing brief):
+  - "Eu sempre—" (27.80-28.28s) cut, splicing directly to "me, pra quem
+    me acompanha..." (28.46s) — cut edges at 27.72s/28.36s.
+  - "A única co-" (33.90-34.34s) cut, splicing directly to "a única
+    coisa que tem diferente..." (34.40s) — cut edges at 33.88s/34.37s
+    (tighter ~20-30ms pads here since the natural gap between the
+    stammer and its correction was only ~40-60ms; verified via
+    word-level JSON timestamps, not just the phrase-level transcript, to
+    avoid clipping into either word).
+- No other retakes or dead air — remaining internal gaps all under ~1s,
+  judged as natural delivery rhythm (same standard as prior sessions).
+- No tail trim — ends cleanly on "Valeu.", negligible trailing silence
+  against the raw duration.
+- Grade: tested saturation 0.85/1.00/1.15 on a mid-clip sample frame
+  against the same green LMC backdrop as the Renata/Jamil and Sthanley
+  sessions. 1.15 pushed the green into an oversaturated neon look and
+  warmed skin tones slightly; landed on the same saturation=1.00,
+  contrast=1.07 baseline (`eq=contrast=1.07:brightness=0.0:
+  saturation=1.00,curves=master='0/0 0.25/0.23 0.75/0.77 1/1'`).
+- Denoise: `highpass=f=80,afftdn=nr=8` (no `nf` override), established
+  default.
+- Reused the already-normalized vignette segment
+  (`edit/clips_graded/sth_seg_vinheta.mp4`).
+- Three interview segments extracted in parallel (each independently
+  graded/denoised/faded to the shared target spec), then lossless
+  `-c copy` concat of all three plus the vignette via a `cygpath -w`
+  concat list.
+- Output: `EDITADOS/entrevista lmc 2 rony jason - editado.mp4`, final
+  duration 90.97s (89.35s interview across 3 segments + 1.6s vignette).
+- Self-eval via `timeline_view` on the rendered output (opening cut, both
+  internal cut boundaries, vignette join, one mid-point) passed on the
+  first pass — both internal cuts are invisible since the shot framing is
+  continuous throughout, no audio pops, no visual glitches, grade
+  consistent.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload + Drive backup.
+- Raw file (`entrevista lmc 2 rony jason.MP4`, 1.40GB) not yet deleted —
+  per standing rule, only after validation + YouTube publish + Drive
+  backup.
+
+## Session 21 — 2026-09-18 (Rony Jason — publication)
+
+**Strategy:** User approved the session 20 cut ("ficou bom, pode subir no
+youtube"). Followed the mandatory channel-check rule: verified the channel
+with `check-channel.js youtube` both before and after the upload.
+
+**Decisions:**
+- Channel verified as `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  before upload and again after — both confirmed correct.
+- Metadata (`rony_jason_metadata.json`): title/description focus on his
+  jiu-jitsu/TUF background, the promised knockout, and the Bruno Blindado
+  callout for LMC 3 — uses "cage" terminology and covers "Liga Monstro
+  Combate"/"LMC"/"LMC 2" for SEO. Signature block written explicitly into
+  the API description. `privacyStatus: "unlisted"` per the project's
+  default-privacy rule.
+- Published: https://youtu.be/zCkb1c8h4GU
+
+**Outstanding:**
+- Drive backup of the final cut still pending.
+- Raw file (`entrevista lmc 2 rony jason.MP4`, 1.40GB) still not deleted —
+  Drive backup is the last of the three required steps.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 22 — 2026-09-18 (Rony Jason — Drive backup)
+
+**Decisions:**
+- Uploaded the final cut to the Liga Monstro Drive folder
+  (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`) via `drive-upload.js`.
+- Verified independently via `get_file_metadata` (not just trusting the
+  upload script's own success log) — confirmed name, correct parent
+  folder, not trashed, and size matches the local file exactly
+  (671,409,868 bytes both sides).
+  Drive file: https://drive.google.com/file/d/11G5LYrv93u99u1aSmNqdPnh3eK94VBpG/view
+
+**Outstanding:**
+- All three gating steps for this interview are now done: cut validated
+  by the user, published to YouTube (unlisted,
+  https://youtu.be/zCkb1c8h4GU), and backed up to Drive. Raw file
+  (`entrevista lmc 2 rony jason.MP4`, 1.40GB) can be deleted once the user
+  explicitly confirms — not done automatically, per the standing rule.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 23 — 2026-09-18 (Nathy Silva — first edit)
+
+**Tempo de edição:** ~23min (20:45:43 início da transcrição → 21:09:01
+corte final entregue pra validação, cronometrado ao vivo nesta sessão).
+
+**Strategy:** Eighth raw, downloaded from a Google Drive link the user
+shared directly in chat (`DJI_20260827160118_0689_D.MP4`, 1.82GB, file ID
+`1pne0TgdEVkskTpbuYZxYV94yv9uBQdk_`) via `youtube-upload/drive-download.js`.
+Renamed to `entrevista lmc 2 nathy silva.MP4` per convention. Standard
+sit-down interview format (host + Nathy Silva, fighter), ~126.2s raw,
+about her fight prep, her coach (Cyborg) cornering her, opponent scouting,
+and her experience at the event.
+
+**Decisions:**
+- Opening cut: minimal trim, only ~1.1s of lead-in before the first word
+  ("Nath Silva, que expectativa, hein?..." at 1.32s, cut at 1.12s w/ 200ms
+  pad) — no off-topic chatter here, the interview starts clean.
+- One internal false-start trim: "...a gente tem um pouco de experiência
+  ali com ele **e a gente vai fa--** a gente, eu faço acontecer tanto
+  quanto ele..." — snipped the aborted "e a gente vai fa--" (cut edges at
+  37.80s/38.86s, tight ~20-40ms pads given the false start and its
+  restart word were only ~40ms apart in the word-level JSON).
+- Left one stammer uncut: "pe-pela oportunidade" — Scribe transcribed it
+  as a single word token with no clean internal boundary, so cutting it
+  would violate the never-cut-inside-a-word rule; it's also a minor,
+  barely-noticeable natural stumble.
+- Left one ~1.02s internal gap uncut (58.44s→59.46s, mid-question) —
+  judged as the host taking a beat to phrase a multi-part question, same
+  standard applied in the Renata/Jamil session for similar pauses.
+- No tail trim — ends cleanly on "Obrigadão, hein?", negligible trailing
+  silence.
+- Grade: tested saturation 0.85/1.00/1.15 on a mid-clip sample frame.
+  This shoot's lighting is a dimmer, mixed backstage-style setup (not the
+  bright on-stage LED backdrop from other interviews) — none of the three
+  values showed a clear push toward oversaturation or flatness, so landed
+  on the same saturation=1.00/contrast=1.07 baseline used across the
+  series for consistency.
+- Denoise: `highpass=f=80,afftdn=nr=8` (no `nf` override), established
+  default.
+- Reused the already-normalized vignette segment
+  (`edit/clips_graded/sth_seg_vinheta.mp4`).
+- Two interview segments extracted in parallel (graded/denoised/faded to
+  the shared target spec), then lossless `-c copy` concat with the
+  vignette via a `cygpath -w` concat list.
+- Output: `EDITADOS/entrevista lmc 2 nathy silva - editado.mp4`, final
+  duration 125.64s (124.03s interview across 2 segments + 1.6s vignette).
+- Self-eval via `timeline_view` on the rendered output (opening cut,
+  internal cut boundary, vignette join, one mid-point) passed on the
+  first pass — no audio pops, no visual glitches, grade consistent.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload + Drive backup.
+- Raw file (`entrevista lmc 2 nathy silva.MP4`, 1.82GB) not yet deleted —
+  per standing rule, only after validation + YouTube publish + Drive
+  backup.
+
+## Session 24 — 2026-09-18 (Nathy Silva — publication)
+
+**Strategy:** User approved the session 23 cut ("ficou bom, pode subir no
+youtube"). Followed the mandatory channel-check rule: verified the channel
+with `check-channel.js youtube` both before and after the upload.
+
+**Decisions:**
+- Channel verified as `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  before upload and again after — both confirmed correct.
+- Metadata (`nathy_silva_metadata.json`): title/description focus on her
+  fight prep, Cyborg cornering her, and opponent scouting — uses "cage"
+  terminology and covers "Liga Monstro Combate"/"LMC"/"LMC 2" for SEO.
+  Signature block written explicitly into the API description.
+  `privacyStatus: "unlisted"` per the project's default-privacy rule.
+- Published: https://youtu.be/3EKrhd47ZsQ
+
+**Outstanding:**
+- Drive backup of the final cut still pending.
+- Raw file (`entrevista lmc 2 nathy silva.MP4`, 1.82GB) still not deleted
+  — Drive backup is the last of the three required steps.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 25 — 2026-09-18 (Nathy Silva — Drive backup)
+
+**Decisions:**
+- Uploaded the final cut to the Liga Monstro Drive folder
+  (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`) via `drive-upload.js`.
+- Verified independently via `get_file_metadata` (not just trusting the
+  upload script's own success log) — confirmed name, correct parent
+  folder, not trashed, and size matches the local file exactly
+  (1,208,186,632 bytes both sides).
+  Drive file: https://drive.google.com/file/d/1Ry7cIua0-ST2a7H8dQQamTmtdef3YkJz/view
+
+**Outstanding:**
+- All three gating steps for this interview are now done: cut validated
+  by the user, published to YouTube (unlisted,
+  https://youtu.be/3EKrhd47ZsQ), and backed up to Drive. Raw file
+  (`entrevista lmc 2 nathy silva.MP4`, 1.82GB) can be deleted once the
+  user explicitly confirms — not done automatically, per the standing
+  rule.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 26 — 2026-09-18 (Ryan Tupã — first edit)
+
+**Tempo de edição:** ~48min (21:34:17 início da transcrição → 22:22:41
+corte final entregue pra validação, cronometrado ao vivo nesta sessão).
+
+**Strategy:** Ninth raw, downloaded from a Google Drive link the user
+shared directly in chat (`DJI_20260827160556_0690_D.MP4`, 1.73GB, file ID
+`13Dl0qd7usQJzDs1akEit1gMf-VZoNM-0`) via `youtube-upload/drive-download.js`.
+Renamed to `entrevista lmc 2 ryan tupa.MP4` per convention. Standard
+sit-down interview format (host + Ryan Tupã) on a backstage set with a
+green screen panel visible, ~119.5s raw, about the "qual fight" cage
+format, his training camp, and swapping notes with Alcindo pre-fight.
+
+**Decisions:**
+- Opening cut: only ~2.2s of lead-in trimmed before the first word ("É
+  isso sim, olha, Ryan Tupã tem uma missão monstruosa..." at 2.40s, cut
+  at 2.20s w/ 200ms pad) — starts clean on the host's on-topic intro, no
+  off-topic chatter to remove.
+- No internal cuts made: one stammer ("sa-já sabia") is transcribed as a
+  single merged word token in the word-level JSON with no clean boundary
+  to cut, same situation as the "pe-pela" case in the Nathy Silva
+  session — left as natural speech. A cluster of short hesitation pauses
+  (0.5-1.4s) while the host formulates one longer compound question
+  around 78-88s was also left uncut, judged as real-time question-forming
+  rather than dead air, consistent with the standard applied in prior
+  sessions.
+- No tail trim — ends on a natural closing fist-bump moment with the host
+  saying "Ryan Tupã", good as-is.
+- Grade: tested saturation 0.85/1.00/1.15 on a mid-clip sample frame
+  against this dimmer backstage set (small green screen panel visible,
+  not the bright on-stage LED backdrop). No value showed a clear push
+  toward oversaturation or flatness, so landed on the same
+  saturation=1.00/contrast=1.07 baseline used across the series.
+- Denoise: `highpass=f=80,afftdn=nr=8` (no `nf` override), established
+  default.
+- Reused the already-normalized vignette segment
+  (`edit/clips_graded/sth_seg_vinheta.mp4`).
+- Single interview segment extracted (graded/denoised/faded to the
+  shared target spec), then lossless `-c copy` concat with the vignette
+  via a `cygpath -w` concat list.
+- Output: `EDITADOS/entrevista lmc 2 ryan tupa - editado.mp4`, final
+  duration 118.91s (117.29s interview + 1.6s vignette).
+- Self-eval via `timeline_view` on the rendered output (opening cut,
+  vignette join, one mid-point) passed on the first pass — no audio pops,
+  no visual glitches, grade consistent.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload + Drive backup.
+- Raw file (`entrevista lmc 2 ryan tupa.MP4`, 1.73GB) not yet deleted —
+  per standing rule, only after validation + YouTube publish + Drive
+  backup.
+
+## Session 27 — 2026-09-18 (Ryan Tupã — publication)
+
+**Strategy:** User approved the session 26 cut ("ficou bom, pode subir no
+youtube"). Followed the mandatory channel-check rule: verified the channel
+with `check-channel.js youtube` both before and after the upload.
+
+**Decisions:**
+- Channel verified as `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  before upload and again after — both confirmed correct.
+- Metadata (`ryan_tupa_metadata.json`): title/description focus on the
+  "Qual Fight" cage format and his callout to Alcindo — uses "cage"
+  terminology and covers "Liga Monstro Combate"/"LMC"/"LMC 2" for SEO.
+  Signature block written explicitly into the API description.
+  `privacyStatus: "unlisted"` per the project's default-privacy rule.
+- Published: https://youtu.be/WvOFY2mx1Nw
+
+**Outstanding:**
+- Drive backup of the final cut still pending.
+- Raw file (`entrevista lmc 2 ryan tupa.MP4`, 1.73GB) still not deleted —
+  Drive backup is the last of the three required steps.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 28 — 2026-09-18 (Ryan Tupã — Drive backup)
+
+**Decisions:**
+- Uploaded the final cut to the Liga Monstro Drive folder
+  (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`) via `drive-upload.js`.
+- Verified independently via `get_file_metadata` (not just trusting the
+  upload script's own success log) — confirmed name, correct parent
+  folder, not trashed, and size matches the local file exactly
+  (1,092,326,925 bytes both sides).
+  Drive file: https://drive.google.com/file/d/1Dbhohaapw-3vdq4N4lhV2Th2RWRWPg_a/view
+
+**Outstanding:**
+- All three gating steps for this interview are now done: cut validated
+  by the user, published to YouTube (unlisted,
+  https://youtu.be/WvOFY2mx1Nw), and backed up to Drive. Raw file
+  (`entrevista lmc 2 ryan tupa.MP4`, 1.73GB) can be deleted once the user
+  explicitly confirms — not done automatically, per the standing rule.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 29 — 2026-09-18 (Maycon Alcino — first edit)
+
+**Tempo de edição:** ~22min ativos (não é mais o intervalo bruto entre
+início e fim). Usuário pediu explicitamente antes desta edição pra
+contabilizar só o tempo de trabalho ativo, excluindo a espera pela
+resposta dele — regra nova registrada em memória
+(`feedback_edit_time_tracking`). Medido em dois blocos: 22:36:47→22:40:22
+(download, transcrição, pacote do transcript, teste de grade e proposta
+de estratégia, ~3min35s) + 22:41:51→23:00:20 (execução do corte, encode,
+concat, self-eval, ~18min29s), excluindo o intervalo de espera pela
+confirmação do usuário entre os dois blocos.
+
+**Strategy:** Tenth raw, downloaded from a Google Drive link the user
+shared directly in chat (`DJI_20260827160902_0692_D.MP4`, 1.72GB, file ID
+`1gNNxQqFMsFCNcZ7ZLBxmmCI4oBOSwtJ9`) via `youtube-upload/drive-download.js`.
+Renamed to `entrevista lmc 2 maycon alcino.MP4` per convention. Standard
+sit-down interview format (host + Maycon Alcino) on the same backstage set
+as Ryan Tupã, ~119.2s raw, about the "Crow Fight" format, the first
+women's edition coming up, and his role helping Ryan Tupã prep.
+
+**Decisions:**
+- Opening cut: only ~1s of lead-in trimmed before the first word ("Alcino
+  do Monstro lutou na primeira edição..." at 1.16s, cut at 0.96s w/ 200ms
+  pad) — starts clean, no off-topic chatter to remove.
+- No internal cuts: scanned the word-level JSON for hyphenated
+  stammer/false-start tokens (the pattern seen in prior sessions) and
+  found none — clean continuous take throughout.
+- Left two pauses uncut (~1.06s and ~1.16s) — natural thinking/transition
+  pauses, not dead air, consistent with the standard applied across the
+  series.
+- **Flagged, not cut:** he says "25 de setembro" early on and "25 de
+  agosto" later for the same event — a spoken date inconsistency. Per the
+  project's standing rule (don't re-edit for on-camera mistakes), this
+  will be noted as an "errata" in the YouTube description at publish time
+  instead of being cut.
+- No tail trim — ends cleanly on "É isso aí. Oss."
+- Grade: tested saturation 0.85/1.00/1.15 on a mid-clip sample frame
+  against the same backstage set/lighting as the Ryan Tupã session.
+  Landed on the same saturation=1.00/contrast=1.07 baseline for
+  consistency (no clear push in either direction from this lighting).
+- Denoise: `highpass=f=80,afftdn=nr=8` (no `nf` override), established
+  default.
+- Reused the already-normalized vignette segment
+  (`edit/clips_graded/sth_seg_vinheta.mp4`).
+- Single interview segment extracted (graded/denoised/faded to the shared
+  target spec), then lossless `-c copy` concat with the vignette via a
+  `cygpath -w` concat list.
+- Output: `EDITADOS/entrevista lmc 2 maycon alcino - editado.mp4`, final
+  duration 119.87s (118.25s interview + 1.6s vignette).
+- Self-eval via `timeline_view` on the rendered output (opening cut,
+  vignette join, one mid-point) passed on the first pass — no audio pops,
+  no visual glitches, grade consistent.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload + Drive backup.
+- Raw file (`entrevista lmc 2 maycon alcino.MP4`, 1.72GB) not yet
+  deleted — per standing rule, only after validation + YouTube publish +
+  Drive backup.
+- Remember to include the "25 de setembro" vs "25 de agosto" errata note
+  in the YouTube description when publishing this one.
+
+## Session 30 — 2026-09-18 (Maycon Alcino — publication)
+
+**Strategy:** User approved the session 29 cut ("ficou bom, pode subir no
+youtube"). Followed the mandatory channel-check rule: verified the channel
+with `check-channel.js youtube` both before and after the upload.
+
+**Decisions:**
+- Channel verified as `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  before upload and again after — both confirmed correct.
+- Metadata (`maycon_alcino_metadata.json`): title/description focus on
+  the Crow Fight format and the upcoming women's edition — uses "cage"
+  terminology and covers "Liga Monstro Combate"/"LMC"/"LMC 2" for SEO.
+  Included the "25 de setembro" vs "25 de agosto" errata note in the
+  description per the project's standing rule (flag spoken mistakes in
+  the description instead of re-cutting). Signature block written
+  explicitly into the API description. `privacyStatus: "unlisted"` per
+  the project's default-privacy rule.
+- Published: https://youtu.be/IrTDAyO0Mc0
+
+**Outstanding:**
+- Drive backup of the final cut still pending.
+- Raw file (`entrevista lmc 2 maycon alcino.MP4`, 1.72GB) still not
+  deleted — Drive backup is the last of the three required steps.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 31 — 2026-09-18 (Maycon Alcino — Drive backup)
+
+**Decisions:**
+- Uploaded the final cut to the Liga Monstro Drive folder
+  (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`) via `drive-upload.js`.
+- Verified independently via `get_file_metadata` (not just trusting the
+  upload script's own success log) — confirmed name, correct parent
+  folder, not trashed, and size matches the local file exactly
+  (1,092,165,063 bytes both sides).
+  Drive file: https://drive.google.com/file/d/1wRaY6Dll3ZS9p9hPoX1z1R3TLmfBFS2K/view
+
+**Outstanding:**
+- All three gating steps for this interview are now done: cut validated
+  by the user, published to YouTube (unlisted,
+  https://youtu.be/IrTDAyO0Mc0), and backed up to Drive. Raw file
+  (`entrevista lmc 2 maycon alcino.MP4`, 1.72GB) can be deleted once the
+  user explicitly confirms — not done automatically, per the standing
+  rule.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 32 — 2026-09-18 (Rayan Polacco — first edit)
+
+**Tempo de edição:** ~19min ativos (dois blocos, excluindo a espera pela
+confirmação do usuário: 23:10:03→23:14:50 download/transcrição/proposta,
+~4min47s + 23:17:07→23:31:11 execução do corte/encode/self-eval,
+~14min04s).
+
+**Strategy:** Eleventh raw, downloaded from a Google Drive link the user
+shared directly in chat (`DJI_20260827161336_0693_D.MP4`, 1.47GB, file ID
+`1NNBAsh3pYPWfQTSUz3PG5XKjru7qRR7U`) via `youtube-upload/drive-download.js`.
+Renamed to `entrevista lmc 2 rayan polacco.MP4` per convention. Standard
+sit-down interview format (host + Rayan Polacco) on the bright green LMC
+stage set, ~101.5s raw, about the Crow Fight format and his prep,
+including a 23-minute non-stop sparring round as the camp's highlight.
+
+**Decisions:**
+- Opening cut: trimmed ~3.1s of pre-interview name-pronunciation
+  confirmation ("É Raian?" / "Isso.") before the actual on-camera intro
+  starts — start moved to "Raian, monstruoso Polaco..." (3.32s, cut at
+  3.12s w/ 200ms pad).
+- One internal false-start trim: host's reaction "Isso, **vinte e
+  trê--** é muito monstro. Vinte e três minutos é monstro demais." —
+  snipped the truncated "vinte e trê--" (cut edges at 68.36s/68.80s,
+  tight ~20ms pads given the stammer and the following word were only
+  ~60ms apart in the word-level JSON), producing "Isso, é muito monstro.
+  Vinte e três minutos é monstro demais."
+- No other retakes or dead air — scanned the word-level JSON for
+  hyphenated stammer tokens and found only the one above; all internal
+  gaps under 1s.
+- No tail trim — after "Valeu, obrigado." there's ~1.3s of natural
+  closing-moment ambience with both still on camera, left as-is.
+- Grade: tested saturation 0.85/1.00/1.15 on a mid-clip sample frame
+  against the bright green LMC backdrop (same style as the Sthanley/
+  Renata-Jamil sessions). 1.15 pushed the green into neon/oversaturated
+  territory; landed on the established saturation=1.00/contrast=1.07
+  baseline.
+- Denoise: `highpass=f=80,afftdn=nr=8` (no `nf` override), established
+  default.
+- Reused the already-normalized vignette segment
+  (`edit/clips_graded/sth_seg_vinheta.mp4`).
+- Two interview segments extracted in parallel (graded/denoised/faded to
+  the shared target spec), then lossless `-c copy` concat with the
+  vignette via a `cygpath -w` concat list.
+- Output: `EDITADOS/entrevista lmc 2 rayan polacco - editado.mp4`, final
+  duration 99.62s (98.02s interview across 2 segments + 1.6s vignette).
+- Self-eval via `timeline_view` on the rendered output (opening cut,
+  internal cut boundary, vignette join, one mid-point) passed on the
+  first pass — invisible internal cut, no audio pops, no visual
+  glitches, grade consistent.
+
+**Outstanding:**
+- Awaiting user validation before YouTube upload + Drive backup.
+- Raw file (`entrevista lmc 2 rayan polacco.MP4`, 1.47GB) not yet
+  deleted — per standing rule, only after validation + YouTube publish +
+  Drive backup.
+
+## Session 33 — 2026-09-18 (Rayan Polacco — publication)
+
+**Strategy:** User approved the session 32 cut ("ficou bom, pode subir no
+youtube"). Followed the mandatory channel-check rule: verified the channel
+with `check-channel.js youtube` both before and after the upload.
+
+**Decisions:**
+- Channel verified as `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  before upload and again after — both confirmed correct.
+- Metadata (`rayan_polacco_metadata.json`): title/description highlight
+  the 23-minute non-stop round and the Crow Fight callout — uses "cage"
+  terminology and covers "Liga Monstro Combate"/"LMC"/"LMC 2" for SEO.
+  Signature block written explicitly into the API description.
+  `privacyStatus: "unlisted"` per the project's default-privacy rule.
+- Published: https://youtu.be/48J7fcONSTc
+
+**Outstanding:**
+- Drive backup of the final cut still pending.
+- Raw file (`entrevista lmc 2 rayan polacco.MP4`, 1.47GB) still not
+  deleted — Drive backup is the last of the three required steps.
+- End screen still needs manual setup in YouTube Studio.
+
+## Session 34 — 2026-09-18 (Rayan Polacco — Drive backup)
+
+**Decisions:**
+- Uploaded the final cut to the Liga Monstro Drive folder
+  (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`) via `drive-upload.js`.
+- Verified independently via `get_file_metadata` (not just trusting the
+  upload script's own success log) — confirmed name, correct parent
+  folder, not trashed, and size matches the local file exactly
+  (672,262,357 bytes both sides).
+  Drive file: https://drive.google.com/file/d/1BrUzh18BNawZ1y-5EXOPqG-uXCslXowJ/view
+
+**Outstanding:**
+- All three gating steps for this interview are now done: cut validated
+  by the user, published to YouTube (unlisted,
+  https://youtu.be/48J7fcONSTc), and backed up to Drive. Raw file
+  (`entrevista lmc 2 rayan polacco.MP4`, 1.47GB) can be deleted once the
+  user explicitly confirms — not done automatically, per the standing
+  rule.
+- End screen still needs manual setup in YouTube Studio.

@@ -11,10 +11,17 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 | Evangelista Cyborg | [YouTube](https://youtu.be/zjY9A4tsqoI) | Claude Sonnet 5 | ~43min (19min corte inicial + 24min de ajuste de cor pós-validação) |
 | Marcelo do Ó | [YouTube](https://youtu.be/OTfvfxfkx58) | Claude Sonnet 5 | não cronometrado² |
 | Renata e Jamil Achlei | [YouTube](https://youtu.be/Voc34ljvLb0) (não listado) | Claude Sonnet 5 | ~34min³ |
+| Sandribas | [YouTube](https://youtu.be/Uz8LkSv3hs8) (não listado) | Claude Sonnet 5 | ~48min |
+| Rony Jason | [YouTube](https://youtu.be/zCkb1c8h4GU) (não listado) | Claude Sonnet 5 | ~22min |
+| Nathy Silva | [YouTube](https://youtu.be/3EKrhd47ZsQ) (não listado) | Claude Sonnet 5 | ~23min |
+| Ryan Tupã | [YouTube](https://youtu.be/WvOFY2mx1Nw) (não listado) | Claude Sonnet 5 | ~48min |
+| Maycon Alcino | [YouTube](https://youtu.be/IrTDAyO0Mc0) (não listado) | Claude Sonnet 5 | ~22min⁴ |
+| Rayan Polacco | [YouTube](https://youtu.be/48J7fcONSTc) (não listado) | Claude Sonnet 5 | ~19min⁴ |
 
 ¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
 ² Tempo de edição não cronometrado nesta sessão (execução em segundo plano intercalada com outras tarefas).
 ³ Reconstruído via timestamp dos arquivos gerados (download → corte final pronto), não por cronômetro ao vivo — a partir desta edição, o tempo passa a ser cronometrado explicitamente em toda sessão (ver CLAUDE.md).
+⁴ A partir desta edição, o tempo passa a contar só o trabalho ativo (download, transcrição, corte, encode), excluindo o intervalo de espera pela resposta/validação do usuário — a pedido explícito dele.
 
 ## Processo
 
