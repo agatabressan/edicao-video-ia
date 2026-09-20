@@ -27,6 +27,24 @@ Use `[start-end]` ranges to address cuts in the EDL.
   [120.42-123.42] S0 Competitividade é o que a Liga Monstro Kombat traz.
   [124.02-124.44] S0 Oss.
 
+## entrevista lmc 2 felipe pamplona  (duration: 2m 02.5s, 16 phrases)
+  [000.26-002.30] S0 Pamplona, você que é um produtor experiente,
+  [002.84-008.18] S0 é, queria saber de você assim, qual é o impacto que a LMC traz pra esse cenário das lutas?
+  [008.58-012.74] S1 Cara, é, não tem nem o que falar, né. A gente tá na rede nacional hoje com a Rede TV. Ontem, na
+  [013.46-037.98] S1 pesagem que a gente fez, eu conversei com os atletas pra todo mundo realmente se comportar e apresentar um bom show hoje aí pra televisão, porque o sonho de todo mundo é tá hoje numa rede aberta, o esporte que mais cresce no mundo é o MMA. Trabalho já há dezenove anos com isso, então pra gente tá dentro de uma emissora dessa hoje, tanto pra impactar na vida dos atletas novos que tão começando, quanto pra gente ter hoje um sábado à noite ou uma sexta à noite aí, um MMA de qualidade aí, sem ser em canal de rede fechada, né.
+  [038.24-041.50] S0 Pois é, e a proposta é que esse projeto ele seja mensal, não é isso?
+  [041.92-055.82] S1 Isso, a gente já tem algumas agendas aí até dezembro que são mensais, então a gente já tá conseguindo conciliar de fechar as lutas até dezembro, principalmente, mas é um contrato bem longo já, de quase dois anos aí. Então a gente pode contar que a gente vai ter pelo menos dois anos aí de, de MMA em te, em rede aberta, né.
+  [056.22-063.56] S0 Pois é, e é uma oportunidade pros lutadores que acabam ganhando visibilidade, né? Porque é muito importante aparecer na TV e a LMC tá aí, é,
+  [064.30-067.42] S0 nessa parceria com a Rede TV, é uma oportunidade realmente que
+  [067.96-070.52] S0 vai alavancar o mercado de trabalho pros atletas.
+  [070.76-097.80] S1 Com certeza, hoje a gente tem a maioria do cenário nacional do MMA, ele é com redes, é, com rede fechada, algumas outras emissoras que cobram pelo pay per view. Então aqui hoje você pode lutar numa rede nacional, prospectar novos patrocinadores, mostrar o seu serviço hoje pra aumentar o seu share dog também. É, a nossa estrutura tá sensacional, a gente tá conseguindo pagar uma bolsa de qualidade, a gente tem um hotel legal, a gente tem uma van. Os atletas, depois é legal cês filmar os camarins, os atletas, eles tão com camarim, com banheiro exclusivo, água,
+  [098.32-105.98] S1 fruta. Então assim, cara, eu acho que tô no cenário há muito tempo assim, graças a Deus a gente tá conseguindo implementar isso no Liga Monstro aí ao vivo na Rede TV, cara.
+  [106.02-109.02] S0 Pamplona, muito obrigado, cara. Isso que cê tá dizendo é verdade, eu posso dizer,
+  [109.54-118.38] S0 né, porque eu participei da primeira edição e realmente a estrutura é fantástica, o tratamento com os atletas, é, padrão alto nível. Muito obrigado, irmão.
+  [118.40-121.02] S1 Obrigado você, irmão. Espero ver você brigando de novo lá no UFC.
+  [121.06-122.08] S0 Opa, em breve tô de volta.
+  [122.10-122.78] S1 ([riso]) Valeu.
+
 ## entrevista lmc 2 marcelo do o  (duration: 2m 50.6s, 30 phrases)
   [000.04-002.98] S0 ([conversas]) Olha quem tá aqui, Marcelo D'O-
   [003.10-004.12] S1 Opa, sou eu, seu Jhon
@@ -58,6 +76,48 @@ Use `[start-end]` ranges to address cuts in the EDL.
   [149.28-162.16] S2 sete, né, no YouTube da RedeTV e das dez horas da noite na RedeTV, no canal, vamo tá lá na telinha pra trazer esse card espetacular. Como o Marcelo falou, tá melhor que a primeira edição, a próxima vai ser melhor, e melhor, e melhor, porque isso é o Liga Monstro, sempre surpreendendo.
   [162.58-169.30] S0 É isso aí, Liga Monstro, combate sempre surpreendendo. E agora, na tela da RedeTV, mensalmente pra você.
   [169.34-170.64] S1 ([conversas])
+
+## entrevista lmc 2 mauro  (duration: 3m 00.4s, 40 phrases)
+  [001.28-006.18] S0 É isso sim, Mauro. Estamos aqui nos estúdios da Rede TV, né, onde tudo vai acontecer,
+  [006.68-011.94] S0 a magia vai acontecer da LMC. E fala pra gente a expectativa desse evento aqui dentro hoje.
+  [012.26-018.96] S1 A expec-expectativa tá alta, Claudião. A expectativa é a mais alta possível, porque a gente tá fazendo algo novo, algo inovador,
+  [019.82-026.78] S1 que vai ser uma coisa boa pros atletas, vai ser uma coisa boa pro MMA nacional. Não só o MMA, né. A gente tem também o box.
+  [027.28-036.30] S1 É, você participou da nossa primeira edição, viu o tamanho que tá sendo esse evento, e agora a gente tá dando um passo al-além disso, trazendo evento todo mês. E essa é a primeira caminhada
+  [036.80-040.86] S1 dos nossos eventos dentro da rede, da rede, da, da rede ([balbucio])
+  [040.90-042.62] S2 Pode seguir, dentro dos estúdios da Rede TV.
+  [042.68-044.44] S1 Dentro dos estúdios da Rede TV. Então,
+  [045.38-048.20] S1 eu vejo, eu, eu estou vendo com uma expectativa lá na-nas estrelas.
+  [048.48-052.22] S0 É isso, Mauro, mas assim, é, não é só sobre quem vai ser o próximo vencedor.
+  [052.80-063.82] S0 É sobre quem pode se tornar o grande nome no cenário do MMA, porque a LMC tá crescendo cada vez mais. Então é muito importante pros atletas também terem essa oportunidade.
+  [064.04-066.94] S1 Sim, com certeza. Eu sempre venho fazendo, falando e f--
+  [067.52-070.12] S1 a gente tem os melhores atletas do mundo.
+  [070.64-076.20] S1 A gente só precisa da mídia, a gente precisa mostrar esses atletas. Nos quatro cantos do Brasil, a gente tem atletas, assim, que
+  [076.94-082.24] S1 a mídia não sabe que existe. E a LMC hoje tá trazendo todos esses atletas e trazendo a mídia
+  [082.78-084.52] S1 pra conhecer essas estrelas que a gente tem.
+  [084.84-087.70] S0 E você como um produtor experiente, né, nesse segmento,
+  [088.22-090.44] S0 o que que a LMC traz de diferente
+  [091.02-092.72] S0 pra essa temporada aqui na Rede TV?
+  [093.38-095.42] S1 A LMC traz, é, além da,
+  [096.72-100.42] S1 da arte marcia-- do, do suco da arte marcial que a gente gosta de respirar,
+  [100.94-105.04] S1 a gente traz o entretenimento. Então a gente semp-- o que que a gente faz de diferente? A gente traz
+  [105.54-112.30] S1 os, os, os influenciadores iniciando o card por quê? Os, o pessoal vai começar a assistir o, as primeiras lutas
+  [113.12-115.02] S1 e a gente finaliza com os nomes
+  [115.56-123.72] S1 que são ex-UFCs, esses nomes importantes. E quem tá no meio desse card, esses atletas que estão iniciando, vão pegar todo esse hype, tanto dos influenciadores
+  [124.30-131.54] S1 quanto dos nomes já, dos nomes consolidados já no mundo todo. Então essa é a nossa diferença. A gente quer trazer a mídia, quer trazer, é,
+  [132.30-135.56] S1 estritamente a mídia para quem tá fazendo o show.
+  [135.96-152.76] S0 Uma grande, uma grande oportunidade pros atletas, pros influenciadores poder tá participando da Liga Mãos de Combate. Pô, Mauro, muito obrigado e ó, é isso aqui pessoal. Tá vazio agora, mas daqui a pouco vai tá cheio aqui. Vão ter os familiares, o pessoal que vai tá apoiando aí, as equipes, né?
+  [153.68-155.16] S0 Vai tá lotado isso aqui, né, Mauro?
+  [155.20-156.64] S1 Isso aqui vai tá cheio e assim,
+  [157.20-159.86] S1 aqui no estúdio tem uma quantidade X de pessoas,
+  [160.40-160.60] S1 mas
+  [161.24-169.50] S1 os atletas vão tá lutando pra mais de três milhões de pessoas. Então, assim, pense em vários Maracanãs assistindo vocês. Essa é a nossa diferença. E, lógico, mês que vem,
+  [170.22-172.14] S1 vários Mara-Maraca-Maracanãs assistindo você.
+  [172.70-173.24] S0 Ai, meu Deus
+  [174.18-177.52] S0 do céu. Spoiler aí ó, vambora. Nossa!
+  [177.58-177.86] S1 Pode ser?
+  [178.38-178.52] S0 Pode.
+  [178.56-180.58] S1 Valei da luta dele. Pronto, vai lutar nesse
+  [181.58-181.66] S1 peso.
 
 ## entrevista lmc 2 maycon alcino  (duration: 1m 57.7s, 24 phrases)
   [001.16-008.66] S0 Alcin do Monstro lutou na primeira edição no Crow Fight e agora tô sabendo aí que dia 25 de setembro, na próxima edição,
@@ -293,6 +353,23 @@ Use `[start-end]` ranges to address cuts in the EDL.
   [057.94-058.02] S1 Êêê.
   [059.68-059.78] S1 Vamo lá.
   [059.80-060.18] S2 ([vozes ao fundo])
+
+## entrevista lmc 2 vitao  (duration: 1m 10.8s, 15 phrases)
+  [001.52-011.12] S0 E eu cheguei aqui, já pego o Vitão aqui organizando tudo aí, marcando, porque é assim, né? ([risos]) É assim, vida de produtor, vida de, é, é fazer acontecer.
+  [011.36-011.48] S1 Exato.
+  [011.52-013.50] S0 E a, e a gente tá fazendo acontecer aqui na
+  [014.10-014.80] S0 RedeTV,
+  [015.36-016.20] S0 nos estúdios,
+  [016.82-021.02] S0 uma nova experiência. Fala pra gente como tá sendo realizar a LMC aqui.
+  [021.64-023.38] S1 É uma visão diferente, né? A gente sempre foi
+  [023.92-039.42] S1 marcado por fazer as coisas diferente dos outros, né? Quem trouxe a UFC pro Brasil foi a gente lá atrás, quando ainda era uma modalidade muito desconhecida. A NFL, mais recentemente também, a gente levou de treze milhões pra quase cinquenta milhões de fãs. E a gente tá trazendo a liga aqui pra volta, de volta pra casa.
+  [039.80-043.36] S0 Pois é, isso aí, uma oportunidade agora de tá juntando Liga Monstro
+  [043.86-048.10] S0 com RedeTV. E parece que é uma oportunidade que vai ser mensal, é isso?
+  [048.34-053.48] S1 Exato. Vai ser toda última sexta-feira do mês. A gente vai ter o evento aqui dentro da emissora, ao vivo, transmitido pra todo o Brasil.
+  [054.08-064.16] S1 E toda sexta-feira do mês que não tem evento, a gente vai ter o Liga Monstro Sem Limites, que é um programa que vai contar um pouco do universo, das outras lutas que não foram pra TV. Então todo mundo que lutar aqui vai aparecer na TV.
+  [064.52-070.38] S0 Pô, Vitão, muito obrigado aí, ó. Fiquem ligadinhos, porque tem muita novidade na LMC junto com a RedeTV.
+  [071.08-071.60] S1 Valeu.
+  [071.64-072.32] S0 Obrigado, cara.
 
 ## entrevista sthanley o maskara  (duration: 1m 29.6s, 20 phrases)
   [000.52-012.32] S0 ([risos]) É isso sim, ele, Stanley, o Máscara. Moleque brabo, representou na primeira edição da Liga Monstro Combate.

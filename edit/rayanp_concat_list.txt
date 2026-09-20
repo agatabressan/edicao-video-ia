@@ -1,0 +1,3 @@
+file 'C:\Users\Ágata Bressan\Downloads\ENTREVISTAS LMC 2\edit\clips_graded\rayanp_seg1.mp4'
+file 'C:\Users\Ágata Bressan\Downloads\ENTREVISTAS LMC 2\edit\clips_graded\rayanp_seg2.mp4'
+file 'C:\Users\Ágata Bressan\Downloads\ENTREVISTAS LMC 2\edit\clips_graded\sth_seg_vinheta.mp4'

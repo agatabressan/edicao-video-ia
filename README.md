@@ -17,11 +17,15 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 | Ryan Tupã | [YouTube](https://youtu.be/WvOFY2mx1Nw) (não listado) | Claude Sonnet 5 | ~48min |
 | Maycon Alcino | [YouTube](https://youtu.be/IrTDAyO0Mc0) (não listado) | Claude Sonnet 5 | ~22min⁴ |
 | Rayan Polacco | [YouTube](https://youtu.be/48J7fcONSTc) (não listado) | Claude Sonnet 5 | ~19min⁴ |
+| Felipe Pamplona | [YouTube](https://youtu.be/DaFpS33Fxzs) (não listado) | Claude Sonnet 5 | ~23min⁴ |
+| Vitão | [YouTube](https://youtu.be/ZMbVU9ercQ8) (não listado) | Claude Sonnet 5 | ~10min⁴ |
+| Mauro Iankoski | [YouTube](https://youtu.be/amWv7y9xOJ0) (não listado) | Claude Sonnet 5 | ~46min⁴⁵ |
 
 ¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
 ² Tempo de edição não cronometrado nesta sessão (execução em segundo plano intercalada com outras tarefas).
 ³ Reconstruído via timestamp dos arquivos gerados (download → corte final pronto), não por cronômetro ao vivo — a partir desta edição, o tempo passa a ser cronometrado explicitamente em toda sessão (ver CLAUDE.md).
 ⁴ A partir desta edição, o tempo passa a contar só o trabalho ativo (download, transcrição, corte, encode), excluindo o intervalo de espera pela resposta/validação do usuário — a pedido explícito dele.
+⁵ Soma de duas sessões: ~27min do corte inicial + ~19min de ajuste pós-validação (grade de cor mais clara/saturada e novo ponto de corte final no "Oss!" do apresentador).
 
 ## Processo
 
