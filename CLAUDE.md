@@ -57,6 +57,12 @@ Feedback recolhido na validação de cada corte — aplicar como padrão desde o
 - Não deixar "ar morto" no início só porque as pessoas já estavam posicionadas — cortar bem próximo da primeira palavra falada, com ~200ms de folga antes dela (não no início bruto do arquivo).
 - **Risada/reação antes da primeira palavra falada também conta como "ar morto" a cortar**, não como conteúdo obrigatório — no corte do Sthanley, o áudio começava com ~3s de risada antes da primeira fala, e isso foi sinalizado como sobra a remover. Regra prática: ancorar o corte de abertura na primeira **palavra falada** do transcript, não no primeiro evento de áudio (risada, tosse, etc.), a menos que o usuário peça pra manter esse momento especificamente.
 
+**Formato vlog (vários brutos, ex.: Bastidores RedeTV):**
+- Montar os brutos na ordem que o usuário indicar, com fusão curta (~0,3s) entre eles; dentro de cada bruto, cortes secos.
+- **Não cortar quando o apresentador "pula" de lugar no quadro.** A caminhada até a próxima pessoa faz parte do vlog. Manter o take contínuo mesmo que inclua um pequeno falso começo. Só cortar pausas em que todo mundo fica parado no mesmo enquadramento. Conferir um filmstrip dos dois lados de cada corte interno.
+- O `xfade` do ffmpeg converte internamente pra yuv444p. Sem `format=yuv420p` depois dele (e `-pix_fmt yuv420p -profile:v high` no encode), os clipes de transição saem em "High 4:4:4", e o player do Windows trava no meio do vídeo ("configurações de codificação sem suporte"). Antes do concat `-c copy`, conferir `profile`/`pix_fmt` de **todos** os pedaços: o ffprobe do arquivo final só mostra o primeiro.
+- Script de referência: `edit/bastidores/build.py` + `edit/bastidores/edl.json` (capítulos, fusões, reaproveitamento de segmentos já renderizados).
+
 **Backup do bruto:**
 - Só apagar o arquivo bruto depois que o corte validado estiver publicado no YouTube E salvo no Drive da Liga Monstro — ver aviso na seção "Editing brief" acima.
 

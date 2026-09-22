@@ -1662,3 +1662,133 @@ YouTube e na sequência já fiz o backup no Drive na mesma sessão.
   apagado.
 - Tela final (end screen) ainda precisa ser configurada manualmente no
   YouTube Studio.
+
+## Session 44 — 2026-09-22 (Bastidores RedeTV — vlog com 4 brutos)
+
+**Tempo de edição:** ~72min de trabalho ativo = 14:32:56→~14:39:30
+(download dos 4 brutos do Drive, transcrição, análise, plano) +
+14:40:55→15:46:18 (corte, encode, autoavaliação, entrega). Excluído o
+intervalo de espera pela resposta do usuário. ~60min disso foi encode 4K.
+
+**Strategy:** Formato novo: vlog em que o Cláudio circula pelos corredores
+/bastidores da RedeTV conversando com funcionários da emissora sobre a LMC
+chegar à casa. 4 brutos (DJI, 4K 59.94, HEVC) baixados do Drive via
+`drive-download.js` e renomeados `bastidores lmc 2 - 1..4.MP4`, montados
+na ordem dada pelo usuário (o 4 foi gravado antes do 3 pelo relógio da
+câmera — irrelevante pro conteúdo). Arquivos da sessão ficam isolados em
+`edit/bastidores/` (transcrições copiadas pra lá pra o `takes_packed.md`
+conter só esses 4).
+
+**Decisions:**
+- Cortes internos secos só em falsos começos e pausas ≥~1s; pausas
+  conversacionais curtas mantidas (tom de vlog). Mantidos de propósito: a
+  confusão "Massoto → Cauã Matoso" com a Ju Bonita e o Edgar esquecendo o
+  nome do Jason (momentos naturais). Caminhada 7.9–12.4s do bruto 1
+  encurtada pra ~2s (b-roll de corredor). Detalhe completo em
+  `edit/bastidores/edl.json`.
+- Entre brutos: fusão de 0.3s (pedido do usuário). Implementação sem
+  dupla codificação: último segmento do capítulo A perde 0.3s no fim,
+  primeiro do B perde 0.3s no início, e um clipe de transição
+  (`xfade` + `acrossfade`) é renderizado direto das fontes; tudo concat
+  `-c copy`. Pontas dos capítulos com ≥0.3s de folga fora da fala pra
+  fusão não sobrepor vozes. Script: `edit/bastidores/build.py`.
+- Grade testada por ambiente (0.9/1.0/1.1/1.2 lado a lado): corredores
+  claros/creme (brutos 1-2) `saturation=1.0` — 1.2 amarelava parede e
+  pele; bastidores parede preta (brutos 3-4) `saturation=1.08` — 1.2
+  puxava pele pro laranja. `contrast=1.07` + curva S baseline nos dois.
+- Áudio: WAV intermediário por bruto (lição Session 38), `highpass=f=80,
+  afftdn=nr=8`, fades 30ms. Bruto 3 vem estéreo mas é mono duplicado
+  (L-R = -38dB) → downmix pra mono antes do filtro, saída `-ac 2`.
+- Vinheta: `sth_seg_vinheta.mp4` reaproveitado, corte seco no fim.
+- Output: `EDITADOS/bastidores lmc 2 redetv - editado.mp4`, 470.67s
+  (469.07s de vlog + 1.6s vinheta), 3.2GB. `silencedetect` sem silêncio
+  espúrio; timeline_view nos 10 pontos de corte limpo.
+
+**Outstanding:**
+- Aguardando validação do usuário → publicação YouTube (checar canal!) →
+  backup Drive.
+- Disco com só ~4.9GB livres. `edit/bastidores/segs/` e
+  `edit/bastidores/wav/` são intermediários desta sessão — apagar após a
+  validação.
+
+## Session 45 — 2026-09-22 (Bastidores RedeTV — ajustes pós-feedback)
+
+**Tempo de edição:** ~13min de trabalho ativo (16:11:30 → 16:24:30).
+Total acumulado desta edição: ~85min.
+
+**Feedback do usuário:**
+1. Corte na caminhada até a Rosineide ficou brusco — em vlog, manter o
+   trajeto andando até a pessoa, é o que dá naturalidade.
+2. Player do Windows (Filmes e TV) parava aos 3:18 com "configurações de
+   codificação sem suporte" (0x80004005).
+
+**Decisions:**
+- **Causa do erro:** o `xfade` converte internamente pra yuv444p, então os
+  3 clipes de transição saíram em H.264 "High 4:4:4 Predictive" no meio de
+  um arquivo yuv420p/High — o decodificador do Windows não aceita trocar
+  de perfil no meio do stream (3:18 = primeira transição). Fix:
+  `format=yuv420p` depois do `xfade` + `-pix_fmt yuv420p -profile:v high`
+  forçados no encode de todos os pedaços. **Lição:** sempre conferir
+  `profile`/`pix_fmt` de TODOS os pedaços antes do concat `-c copy` — o
+  ffprobe do arquivo final só mostra o primeiro, então não denuncia isso.
+- Bruto 1: segmento de abertura agora contínuo 0.14→51.70 (sem o corte
+  9.6–11.7 na caminhada).
+- `build.py` passou a reaproveitar segmentos já renderizados (só re-encodou
+  o novo trecho de abertura + 3 transições).
+- Output sobrescrito: `EDITADOS/bastidores lmc 2 redetv - editado.mp4`,
+  472.77s. Decode completo sem erro, sem silêncio espúrio.
+
+**Outstanding:** aguardando nova validação → YouTube → Drive.
+
+## Session 46 — 2026-09-22 (Bastidores RedeTV — segundo ajuste pós-feedback)
+
+**Tempo de edição:** ~11min de trabalho ativo (16:39:56 → ~16:51).
+Total acumulado desta edição: ~96min.
+
+**Feedback do usuário:** na chegada ao Marquinhos, o "E agora vamo lá"
+cortava direto pro Cláudio já ao lado dele — estranho; manter o take.
+
+**Decisions:**
+- Take mantido contínuo no bruto 2 (0.45→53.30, antes cortava
+  1.85→4.55 no falso começo "vem-- opa, opa, opa").
+- Aplicado o mesmo princípio proativamente em mais dois cortes internos
+  do bruto 1 que também faziam o apresentador "pular" de lugar: saída da
+  Ju (108.55→110.28, ele atravessa a sala) e o falso começo "Ju Bonita
+  famos--" (51.70→53.30, ele vai se aproximando dela). Bruto 1 agora é
+  contínuo do início ao "Bora!". Os cortes restantes (pausas com o
+  Marquinhos parado no mesmo lugar) não mudam o enquadramento.
+- Sem re-encodar os trechos longos: renderizei só os 3 pedaços que
+  faltavam (1.6s, 1.7s, 2.7s), com início calculado no frame exato de
+  fim do segmento anterior, e reindexei os arquivos em `segs/`.
+- Output: 478.80s. Todos os pedaços yuv420p/High, decode completo sem
+  erro, timeline_view nas 3 emendas contínuo.
+
+**Outstanding:** aguardando validação → YouTube → Drive.
+
+## Session 47 — 2026-09-22 (Bastidores RedeTV — publicação + backup no Drive)
+
+**Strategy:** Usuário aprovou o corte da Session 46 ("pode publicar").
+Checagem obrigatória de canal feita antes e depois do upload.
+
+**Decisions:**
+- Canal `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  confirmado nas duas checagens com `check-channel.js youtube`.
+- Metadata (`bastidores_redetv_metadata.json`): título "LMC INVADE A
+  REDETV: O QUE A EQUIPE DA EMISSORA ACHA DO MMA NA CASA? | BASTIDORES LMC
+  2"; descrição cita os entrevistados (Rosineide, Ju Bonita, Edgar,
+  Marquinhos, equipe da montagem do cage) e o "LMC todo mês na RedeTV";
+  "cage", tags com Liga Monstro Combate/LMC/LMC 2; assinatura explícita;
+  `privacyStatus: "unlisted"`. Sem errata necessária.
+- Publicado: https://youtu.be/kitBxc0-KIw
+- Backup no Drive (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`) via
+  `drive-upload.js`, conferido via API: nome, pasta pai e tamanho
+  (3.257.415.069 bytes) batendo com o local.
+  Drive file: https://drive.google.com/file/d/1sSy3IFhvIVk0ZdsSBJaZHVss4R2Rm5s4/view
+
+**Outstanding:**
+- Os 3 passos obrigatórios estão feitos. Brutos (`bastidores lmc 2 -
+  1..4.MP4`, 6.3GB) e intermediários (`edit/bastidores/segs`, ~3GB;
+  `edit/bastidores/wav`) só serão apagados com confirmação do usuário.
+- Tela final (end screen) precisa ser configurada manualmente no Studio.
+- Atualização: usuário confirmou e os 4 brutos (6.3GB) + intermediários
+  (`segs/`, `wav/`) foram apagados. Disco voltou pra ~17GB livres.

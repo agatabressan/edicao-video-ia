@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "note": "Vlog bastidores LMC 2 x RedeTV. Capítulos na ordem dada pelo usuário; fusão de 0.3s entre capítulos, cortes secos dentro.",
+  "chapters": [
+    {"src": 1, "sat": 1.0, "label": "Corredores: abertura, Rosineide, Ju Bonita, Edgar",
+     "segments": [[0.14, 51.70], [51.70818, 53.30], [53.30, 108.55], [108.5552, 110.28], [110.28, 205.30]],
+     "cuts": ["ruído final após 'Bora!'"]},
+    {"src": 2, "sat": 1.0, "label": "Marquinhos (produtor, carateca)",
+     "segments": [[0.45, 1.85], [1.8514, 4.55], [4.55, 53.30], [54.12, 56.10], [57.60, 131.45]],
+     "cuts": ["pausa 53.30-54.12", "pausa 56.10-57.60"]},
+    {"src": 3, "sat": 1.08, "label": "Montagem do cage: menina e rapaz da equipe",
+     "segments": [[6.00, 116.62]],
+     "cuts": ["conversa da equipe 0-6.0", "'Vai de maluco' no fim"]},
+    {"src": 4, "sat": 1.08, "label": "Dois rapazes que não acompanhavam MMA",
+     "segments": [[0.55, 34.15]],
+     "cuts": ["conversas de fundo após 'Muito bom.'"]}
+  ],
+  "crossfade_s": 0.3,
+  "audio": "highpass=f=80,afftdn=nr=8 (sem nf), fades 30ms, a partir de WAV intermediário",
+  "grade": "eq=contrast=1.07:saturation=<sat>,curves S baseline",
+  "outro": "edit/clips_graded/sth_seg_vinheta.mp4"
+}

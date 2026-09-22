@@ -20,12 +20,14 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 | Felipe Pamplona | [YouTube](https://youtu.be/DaFpS33Fxzs) (não listado) | Claude Sonnet 5 | ~23min⁴ |
 | Vitão | [YouTube](https://youtu.be/ZMbVU9ercQ8) (não listado) | Claude Sonnet 5 | ~10min⁴ |
 | Mauro Iankoski | [YouTube](https://youtu.be/amWv7y9xOJ0) (não listado) | Claude Sonnet 5 | ~46min⁴⁵ |
+| Bastidores RedeTV (vlog, 4 brutos) | [YouTube](https://youtu.be/kitBxc0-KIw) (não listado) | Claude Opus 5.5 | ~96min⁴⁶ |
 
 ¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
 ² Tempo de edição não cronometrado nesta sessão (execução em segundo plano intercalada com outras tarefas).
 ³ Reconstruído via timestamp dos arquivos gerados (download → corte final pronto), não por cronômetro ao vivo — a partir desta edição, o tempo passa a ser cronometrado explicitamente em toda sessão (ver CLAUDE.md).
 ⁴ A partir desta edição, o tempo passa a contar só o trabalho ativo (download, transcrição, corte, encode), excluindo o intervalo de espera pela resposta/validação do usuário — a pedido explícito dele.
 ⁵ Soma de duas sessões: ~27min do corte inicial + ~19min de ajuste pós-validação (grade de cor mais clara/saturada e novo ponto de corte final no "Oss!" do apresentador).
+⁶ Formato vlog montado a partir de 4 brutos (~8min17s de material, 6,3GB) com fusão curta entre eles. Soma de três rodadas: ~72min do corte inicial (~60min só de encode 4K) + ~13min de ajuste pós-feedback (caminhada inteira na abertura + correção de formato de cor que travava o player do Windows) + ~11min de segundo ajuste (takes mantidos contínuos onde o corte fazia o apresentador "pular" de lugar).
 
 ## Processo
 
