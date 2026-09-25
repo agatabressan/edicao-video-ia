@@ -72,6 +72,7 @@ Isso já causou publicação no canal errado DUAS vezes (entrevistas do Cyborg e
 node youtube-upload/check-channel.js youtube
 ```
 O script já falha (`exit 1`) e avisa se o canal não for "LMC | Liga Monstro Combate" (ID `UClGFqfpNtUpUD1v51mw3VbQ`). Se der errado (ou o token não existir/expirou), rodar `node auth.js youtube` e, na tela de escolha de conta do Google, selecionar **"Liga Monstros" (Conta de marca)** — nunca a conta com e-mail, que sempre resolve pro canal errado. Nunca pular essa checagem só porque "já funcionou antes".
+Se o Google não mostrar a opção "Liga Monstros" e entrar direto na conta com e-mail (aconteceu no LMC 3 — dois logins seguidos caíram em "Universo Monstro"), a URL precisa de `prompt=select_account consent`; `auth.js` já gera assim desde 2026-09-25. Se ainda assim não aparecer, trocar pro canal LMC em youtube.com (foto → Alternar conta) ou usar janela anônima.
 
 Considerar mudar o app OAuth de "Testing" pra "Em produção" no Google Cloud Console pra eliminar a expiração de 7 dias na raiz (oferecido ao usuário, ainda não confirmado/feito).
 

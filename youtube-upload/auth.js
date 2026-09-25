@@ -49,7 +49,9 @@ const oauth2Client = new google.auth.OAuth2(client_id, client_secret, REDIRECT_U
 
 const authUrl = oauth2Client.generateAuthUrl({
   access_type: 'offline',
-  prompt: 'consent',
+  // select_account força a tela de escolha de conta/conta de marca; sem ele o
+  // Google pode pular direto pra conta com e-mail (canal errado no YouTube).
+  prompt: 'select_account consent',
   scope: scopes,
 });
 

@@ -1792,3 +1792,59 @@ Checagem obrigatória de canal feita antes e depois do upload.
 - Tela final (end screen) precisa ser configurada manualmente no Studio.
 - Atualização: usuário confirmou e os 4 brutos (6.3GB) + intermediários
   (`segs/`, `wav/`) foram apagados. Disco voltou pra ~17GB livres.
+
+## Session 48 — 2026-09-25 (LMC 3 — Pesagem e Encaradas: Alex Cowboy + Eliseu Capoeira)
+
+**Tempo de edição:** ~11min de trabalho ativo (17:52:56 → ~18:04).
+
+**Strategy:** Trecho de 39:44 a 46:48 da transmissão ao vivo da pesagem do
+LMC 3 (`LMC3 - Pesagens e Encaradas - Alex Cowboy x Juan Pablo El Leon.mp4`,
+1080p30 H.264, áudio estéreo já mixado com trilha). Edição simples: abrir
+e fechar em fala, tirar só as sobras de bastidor, grade leve, vinheta.
+
+**Decisions:**
+- Transcrito só o trecho (2380–2812s) → `transcripts/pesagem_lmc3_trecho.json`;
+  leitura em `edit/pesagem/packed.md` com tempos absolutos do bruto.
+- Abertura 2384.60 ("Rapaz, que card, hein?", ~200ms antes). Fechamento
+  2808.10, logo depois de "Mais uma vez, muito obrigado, viu?" (46:48 pedido).
+- Cortes internos: "Tá bom? Agora." (checagem de microfone do Melki,
+  2425.80→2429.60, retomando no frame exato da troca de câmera) e
+  "Pode ficar aqui, pode deixar isso. É," (2590.80→2594.10, plano geral
+  estático dos dois lados — emenda invisível).
+- Grade: contrast 1.06, saturação 1.0 + curva S (testado 0.95/1.0/1.08;
+  sinal de TV já tratado e iluminação verde forte, 1.0 manteve pele natural).
+- **Sem denoise**: áudio da transmissão já vem mixado com a música de fundo
+  (regra do CLAUDE.md: denoise nunca na trilha de música) e já processado
+  pela emissora.
+- Saída em 1080p30 (resolução do bruto); vinheta reescalada 4K→1080p,
+  44.1k→48k. Todos os pedaços yuv420p/High antes do concat.
+- Output: `EDITADOS/lmc 3 pesagem e encaradas - alex cowboy e eliseu capoeira - editado.mp4`,
+  418.02s, decode completo sem erro.
+
+**Outstanding:** aguardando validação → YouTube → Drive. Bruto da
+transmissão (1.5GB) só apagar com confirmação. Disco com ~6GB livres.
+
+## Session 49 — 2026-09-25 (LMC 3 Pesagem — publicação + backup no Drive)
+
+**Strategy:** Usuário aprovou o corte ("tá show, pode publicar"); foco da
+copy nos atletas que puxam audiência: Melk, Elizeu Capoeira e Alex Cowboy.
+
+**Decisions:**
+- Token do YouTube tinha expirado (`invalid_grant`). Dois re-logins caíram
+  em "Universo Monstro" (canal errado) — o Google pulou a tela de conta de
+  marca e entrou direto na conta com e-mail; `check-channel.js` barrou os
+  dois. Resolvido com `prompt=select_account consent` na URL de login, que
+  força a escolha de conta; `auth.js` passou a usar isso por padrão.
+- Canal `LMC | Liga Monstro Combate` (`UClGFqfpNtUpUD1v51mw3VbQ`)
+  confirmado imediatamente antes do upload.
+- Metadata (`pesagem_lmc3_cowboy_elizeu_metadata.json`): título "MELK, ALEX
+  COWBOY E ELIZEU CAPOEIRA FRENTE A FRENTE: "SE PAGAR BEM, QUE MAL TEM?" |
+  PESAGEM LMC 3"; grafias do usuário (Melk, Elizeu); "cage"; tags LMC/LMC 3/
+  Liga Monstro Combate + nomes dos atletas; assinatura explícita; `unlisted`.
+- Publicado: https://youtu.be/QLnbyVYDD4g
+- Drive (`1VKokpi9QpMS1jZpNy66Cy8uYdrpzLXvv`): tamanho 623.798.690 bytes e
+  pasta pai conferidos via API.
+  Drive file: https://drive.google.com/file/d/1Y7z32FXXBbJ5DxIhWlzGyScsj07CBVNz/view
+
+**Outstanding:** bruto da transmissão (1.5GB) e `edit/pesagem/seg*.mp4`
+só apagar com confirmação. Tela final manual no Studio.
