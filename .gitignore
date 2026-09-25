@@ -5,6 +5,8 @@
 *.MOV
 *.avi
 *.mkv
+*.m4a
+*.wav
 *.png
 *.jpg
 *.jpeg
