@@ -22,6 +22,7 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 | Mauro Iankoski | [YouTube](https://youtu.be/amWv7y9xOJ0) (não listado) | Claude Sonnet 5 | ~46min⁴⁵ |
 | Bastidores RedeTV (vlog, 4 brutos) | [YouTube](https://youtu.be/kitBxc0-KIw) (não listado) | Claude Opus 5.5 | ~96min⁴⁶ |
 | LMC 3 — Pesagem: Melk, Alex Cowboy e Elizeu Capoeira (trecho da transmissão) | [YouTube](https://youtu.be/QLnbyVYDD4g) (não listado) | Claude Opus 5.5 | ~11min⁷ |
+| LMC 3 — 14 lutas completas (só publicação, sem edição) | ver [lmc3_lutas_results.json](youtube-upload/lmc3_lutas_results.json) (não listados) | Claude Opus 5.5 | ~28min⁸ |
 
 ¹ Métricas não capturadas na primeira edição — passaram a ser registradas a partir da segunda.
 ² Tempo de edição não cronometrado nesta sessão (execução em segundo plano intercalada com outras tarefas).
@@ -30,6 +31,7 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 ⁵ Soma de duas sessões: ~27min do corte inicial + ~19min de ajuste pós-validação (grade de cor mais clara/saturada e novo ponto de corte final no "Oss!" do apresentador).
 ⁶ Formato vlog montado a partir de 4 brutos (~8min17s de material, 6,3GB) com fusão curta entre eles. Soma de três rodadas: ~72min do corte inicial (~60min só de encode 4K) + ~13min de ajuste pós-feedback (caminhada inteira na abertura + correção de formato de cor que travava o player do Windows) + ~11min de segundo ajuste (takes mantidos contínuos onde o corte fazia o apresentador "pular" de lugar).
 ⁷ Trecho (39:44–46:48) da transmissão ao vivo da pesagem do LMC 3, já em 1080p e com áudio mixado pela emissora — por isso sem denoise.
+⁸ Brutos das lutas baixados do Drive e enviados um a um ao YouTube (`youtube-upload/lmc3-lutas-batch.js`), sem corte/grade. Soma de duas rodadas: ~25min pras 13 primeiras + ~3min pra Luta 5, que entrou no Drive depois.
 
 ## Processo
 

@@ -1,0 +1,206 @@
+[
+  {
+    "n": 1,
+    "driveId": "1iPqcWAlEauaqXlr5BIcrNfOYey9Zcs0C",
+    "a": "Matheus Moreira",
+    "b": "Soteldo Sosia",
+    "resultado": "Matheus Moreira venceu Soteldo Sosia por nocaute técnico (decisão médica), na luta que abriu a noite da LMC 3.",
+    "tags": [
+      "Matheus Moreira",
+      "Soteldo Sosia",
+      "Nocaute Técnico"
+    ]
+  },
+  {
+    "n": 2,
+    "driveId": "1ZYaZMkIMRWj9zIfDThMlQV4PCu8i5cg4",
+    "a": "Cláudio Andrade",
+    "b": "Cauê \"O Insano\"",
+    "resultado": "Cláudio Andrade venceu Cauê \"O Insano\" por decisão unânime.",
+    "tags": [
+      "Cláudio Andrade",
+      "Claudio Andrade",
+      "Cauê O Insano",
+      "Caue O Insano",
+      "Decisão Unânime"
+    ]
+  },
+  {
+    "n": 3,
+    "driveId": "1Nfd0VOhyBShIKejs8DEgobD71mgb2hLU",
+    "a": "Beatriz Pereira",
+    "b": "Keila \"Fortaleza\"",
+    "resultado": "Keila \"Fortaleza\" venceu Beatriz Pereira por decisão unânime e conquistou o cinturão do boxe na categoria peso casado 57 kg, fechando o card preliminar da LMC 3.",
+    "tags": [
+      "Beatriz Pereira",
+      "Keila Fortaleza",
+      "Boxe",
+      "Cinturão",
+      "Peso Casado 57 kg",
+      "MMA Feminino",
+      "Decisão Unânime"
+    ]
+  },
+  {
+    "n": 4,
+    "driveId": "1i72nX3vUa8YRybPJXoSUCp9EN0IT57lA",
+    "a": "Miguel \"Arcanjo\"",
+    "b": "Jonatan \"Mão de Pedra\"",
+    "resultado": "Jonatan \"Mão de Pedra\" Lopes venceu Miguel \"Arcanjo\" por nocaute aos 45 segundos do primeiro round, em uma luta de MMA peso mosca que abriu o card principal da LMC 3.",
+    "tags": [
+      "Miguel Arcanjo",
+      "Jonatan Mão de Pedra",
+      "Jonatan Lopes",
+      "Peso Mosca",
+      "Nocaute",
+      "KO"
+    ]
+  },
+  {
+    "n": 5,
+    "driveId": "1XaZHkTcRDXSlw0LWCNKq7POd5Rka4GPR",
+    "a": "Gabriel \"Alemão\"",
+    "b": "Adolpho \"Gaúcho\"",
+    "resultado": "Gabriel \"Alemão\" venceu Adolpho \"Gaúcho\" por decisão unânime.",
+    "tags": [
+      "Gabriel Alemão",
+      "Adolpho Gaúcho",
+      "Adolpho Gaucho",
+      "Decisão Unânime"
+    ]
+  },
+  {
+    "n": 6,
+    "driveId": "15nws0npyyjL3bDKvRfEcs4cIBZP6_g3V",
+    "a": "Boyka",
+    "b": "Vinícius Camilo",
+    "resultado": "Na terceira luta do card principal da LMC 3, Boyka venceu Vinícius Camilo por nocaute no primeiro round, no peso médio.",
+    "tags": [
+      "Boyka",
+      "Vinícius Camilo",
+      "Vinicius Camilo",
+      "Peso Médio",
+      "Nocaute",
+      "KO"
+    ]
+  },
+  {
+    "n": 7,
+    "driveId": "1_v9NrY2kJvNvQZTxllA0oMLMuBEGtYPl",
+    "a": "Lucas Sassaki",
+    "b": "Jordan \"Shock\"",
+    "resultado": "Na quarta luta do card principal da LMC 3, Jordan \"Shock\" venceu Lucas Sassaki por nocaute técnico no primeiro round, no peso leve. A luta foi interrompida aos 4 minutos e 5 segundos.",
+    "tags": [
+      "Lucas Sassaki",
+      "Jordan Shock",
+      "Peso Leve",
+      "Nocaute Técnico",
+      "TKO"
+    ]
+  },
+  {
+    "n": 8,
+    "driveId": "1qnynzoJRbvzOtn0IgRa1iDhy3YT4J5d7",
+    "a": "André Dedé",
+    "b": "Arley \"Le Boss\"",
+    "resultado": "André Dedé venceu Arley \"Le Boss\" por decisão unânime.",
+    "tags": [
+      "André Dedé",
+      "Andre Dede",
+      "Arley Le Boss",
+      "Decisão Unânime"
+    ]
+  },
+  {
+    "n": 9,
+    "driveId": "1GhjCCr5DRtecG2l0aoWdHniDMPbZ9KU9",
+    "a": "Gabriel \"Mineiro\"",
+    "b": "Daniel Macena",
+    "resultado": "Gabriel \"Mineiro\" venceu Daniel Macena por finalização (mata-leão) aos 2 minutos e 23 segundos do segundo round, na estreia da Crown Fight na LMC 3.",
+    "tags": [
+      "Gabriel Mineiro",
+      "Daniel Macena",
+      "Crown Fight",
+      "Finalização",
+      "Mata-Leão"
+    ]
+  },
+  {
+    "n": 10,
+    "driveId": "1nnu3Gnh-_eRubtgS1OYuez3dC3MbOTtn",
+    "a": "Lucas Escobar",
+    "b": "Levi Morais",
+    "resultado": "Levi Morais venceu Lucas Escobar por nocaute técnico aos 54 segundos do primeiro round, na segunda luta da Crown Fight da LMC 3.",
+    "tags": [
+      "Lucas Escobar",
+      "Levi Morais",
+      "Crown Fight",
+      "Nocaute Técnico",
+      "TKO"
+    ]
+  },
+  {
+    "n": 11,
+    "driveId": "1KvXlfQhVOqpRq5nCAhYrHiqivTrUU5I_",
+    "a": "Emanuela Ruas",
+    "b": "Inglyd Emillay",
+    "resultado": "Emanuela Ruas venceu Inglyd Emillay por finalização aos 2 minutos e 26 segundos do primeiro round, na primeira Crown Fight feminina da história!",
+    "tags": [
+      "Emanuela Ruas",
+      "Ruas",
+      "Inglyd Emillay",
+      "Crown Fight",
+      "Crown Fight Feminino",
+      "MMA Feminino",
+      "Finalização"
+    ]
+  },
+  {
+    "n": 12,
+    "driveId": "1yfvJH5ts2xGoQxkFifW95m-ZJRk-Amva",
+    "a": "Thay \"Avatar\"",
+    "b": "Maria Clara \"Mulher Maravilha\"",
+    "resultado": "Thay \"Avatar\" venceu Maria Clara \"Mulher Maravilha\" por decisão unânime e conquistou o cinturão do peso mosca!",
+    "tags": [
+      "Thay Avatar",
+      "Mulher Maravilha",
+      "Maria Clara",
+      "Cinturão",
+      "Peso Mosca",
+      "MMA Feminino",
+      "Decisão Unânime"
+    ]
+  },
+  {
+    "n": 13,
+    "driveId": "1WUZI1CwppiMsZliOt2J8ilAx2l4eBmIG",
+    "a": "Rodrigo Cavalheiro",
+    "b": "Wallace Lopes",
+    "resultado": "Wallace Lopes venceu Rodrigo Cavalheiro por decisão unânime.",
+    "tags": [
+      "Rodrigo Cavalheiro",
+      "Wallace Lopes",
+      "Decisão Unânime"
+    ]
+  },
+  {
+    "n": 14,
+    "driveId": "1RAxTsJhTHzqPQE5HUphUT0hYbmLjsI31",
+    "a": "Alex \"Cowboy\"",
+    "b": "Juan Pablo \"El León\"",
+    "coMain": false,
+    "mainEvent": true,
+    "resultado": "No main event, Juan Pablo \"El León\" venceu Alex \"Cowboy\" por nocaute técnico aos 4 minutos e 16 segundos do primeiro round, na categoria peso leve.",
+    "tags": [
+      "Alex Cowboy",
+      "Alex Oliveira",
+      "Juan Pablo El Leon",
+      "El León",
+      "Main Event",
+      "Peso Leve",
+      "Nocaute Técnico",
+      "TKO",
+      "UFC"
+    ]
+  }
+]
