@@ -23,6 +23,7 @@ const SIGNATURE = `-------
 🔗 SIGA O LMC NAS REDES SOCIAIS:
 Instagram: https://www.instagram.com/ligamonstrocombate
 YouTube: https://www.youtube.com/@ligamonstrocombate
+TikTok: https://www.tiktok.com/@ligamonstrocombateofc
 
 ✅ ENTRE PARA A COMUNIDADE OFICIAL (WHATSAPP):
 Acompanhe os bastidores, receba promoções exclusivas e notícias em primeira mão!

@@ -86,6 +86,7 @@ Considerar mudar o app OAuth de "Testing" pra "Em produção" no Google Cloud Co
   🔗 SIGA O LMC NAS REDES SOCIAIS:
   Instagram: https://www.instagram.com/ligamonstrocombate
   YouTube: https://www.youtube.com/@ligamonstrocombate
+  TikTok: https://www.tiktok.com/@ligamonstrocombateofc
 
   ✅ ENTRE PARA A COMUNIDADE OFICIAL (WHATSAPP):
   Acompanhe os bastidores, receba promoções exclusivas e notícias em primeira mão!
@@ -99,6 +100,10 @@ Considerar mudar o app OAuth de "Testing" pra "Em produção" no Google Cloud Co
 - `videos.update` (para corrigir um vídeo já publicado) precisa do escopo `youtube.force-ssl`, que `youtube.upload` + `youtube.readonly` sozinhos não cobrem — já adicionado em `auth.js`.
 - **CRÍTICO — autenticação do YouTube é uma Conta de marca, separada da conta de e-mail:** a conta de login (`contato@ligamonstrocombate.com.br`) administra duas identidades do YouTube: **"Liga Monstros"** (Conta de marca = canal "LMC | Liga Monstro Combate", o correto) e o canal pessoal da própria conta ("Universo Monstro", **errado**, não usar). Selecionar a conta com e-mail na tela de login SEMPRE resolve pra "Universo Monstro" via `channels.list(mine=true)`, mesmo definindo LMC como canal padrão no youtube.com — isso não muda esse comportamento da API. **Só selecionar "Liga Monstros" na tela de escolha de conta garante o canal certo.** Depois de qualquer login, sempre confirmar com `channels.list({mine:true})` antes de publicar ou atualizar qualquer vídeo — nunca assumir.
 - **Contas de marca NÃO têm acesso ao Google Drive** (nem a outros serviços do Google além do YouTube). Pedir o escopo `drive` no mesmo login que pede escopos do YouTube quebra a seleção de "Liga Monstros" com o erro "Serviço indisponível". Por isso o YouTube e o Drive usam **logins e tokens completamente separados**: `node auth.js youtube` → `credentials/token-youtube.json` (selecionar "Liga Monstros"), `node auth.js drive` → `credentials/token-drive.json` (selecionar a conta com e-mail, "LMC"). Nunca tentar unificar os dois num único login.
+- **TikTok oficial: `@ligamonstrocombateofc`** (o @ mudou; `@ligamonstrocombate` e `@ligamonstro` são antigos). `youtube-upload/tiktok-signature.js` corrige/insere o link em todos os vídeos do canal.
+- **Não usar "confronto de anões"** (nem em título, tag ou descrição de playlist) — pode soar preconceituoso/aproveitador. Removido a pedido da equipe da luta Hollywood x Salim Chiboub (LMC 1).
+- **Títulos de luta completa:** `NOME x NOME | MMA/BOXE/CROWN FIGHT | [DISPUTA DE CINTURÃO] | LUTA COMPLETA | [MAIN EVENT/CO-MAIN EVENT] | LMC N` — sempre com a modalidade. Teasers: `NOME VS NOME | [CROWN FIGHT/DISPUTA DE CINTURÃO/CO-MAIN/MAIN EVENT] | TEASER LMC N`. Dados do card (modalidade, categoria, resultado): `https://www.ligamonstrocombate.com.br/eventos/<edicao>/conteudo.md`.
+- **Cota da API:** `videos.update` custa 50 unidades; a cota renova à meia-noite do Pacífico (~4h de Brasília). Scripts de atualização em massa precisam pular o que não mudou — e a API devolve as **tags em ordem alfabética**, então comparar tags sempre ordenadas (um erro disso já regravou 38 vídeos à toa e esgotou a cota do dia).
 - Sempre incluir tags de vídeo (title/description/tags) cobrindo as variações "Liga Monstro Combate", "LMC" e "LMC 2" para SEO — não depender só do título.
 - Se algo for dito errado durante a entrevista (ex.: nome de adversário trocado), não é motivo pra recortar/re-editar — sinalizar a correção na descrição do YouTube como uma "errata" em vez de mexer no corte.
 - **Telas finais (end screens) não são configuráveis pela API do YouTube** — precisam ser adicionadas manualmente pelo usuário no YouTube Studio (Conteúdo → vídeo → Editor → Tela final) depois da publicação.
