@@ -64,7 +64,7 @@ async function main() {
   } while (pageToken);
   console.log(`${ids.length} vídeos no canal`);
 
-  let updated = 0; let same = 0; const skipped = [];
+  let updated = 0; let same = 0; const skipped = []; const failed = [];
   for (let i = 0; i < ids.length; i += 50) {
     const vs = (await youtube.videos.list({ part: ['snippet', 'localizations'], id: ids.slice(i, i + 50) })).data.items;
     for (const v of vs) {
@@ -74,7 +74,9 @@ async function main() {
       const locs = {};
       let locChanged = false;
       for (const [lang, loc] of Object.entries(v.localizations || {})) {
-        const d = addTiktok(loc.description);
+        let d = addTiktok(loc.description);
+        // YouTube recusa descricao > 5000 chars; nesse caso a traducao fica como esta
+        if (d !== null && d.length > 5000) { console.log(`  ${v.id} ${lang}: passaria de 5000 chars, mantida`); d = null; }
         locs[lang] = { title: loc.title, description: d ?? loc.description };
         if (d !== null && d !== loc.description) locChanged = true;
       }
@@ -89,11 +91,19 @@ async function main() {
       const parts = ['snippet'];
       const body = { id: v.id, snippet };
       if (Object.keys(locs).length) { parts.push('localizations'); body.localizations = locs; }
-      await youtube.videos.update({ part: parts, requestBody: body });
+      try {
+        await youtube.videos.update({ part: parts, requestBody: body });
+      } catch (err) {
+        if (err.errors?.[0]?.reason === 'quotaExceeded') throw err;
+        failed.push(`${v.id} ${s.title}: ${err.message}`);
+        updated--;
+      }
     }
   }
   console.log(`\n${APPLY ? 'Atualizados' : 'A atualizar'}: ${updated} | já corretos: ${same} | sem bloco de redes (não mexi): ${skipped.length}`);
   skipped.forEach((l) => console.log(`  - ${l}`));
+  if (failed.length) console.log(`\nFalharam (${failed.length}):`);
+  failed.forEach((l) => console.log(`  ! ${l}`));
   console.log('Fim.');
 }
 
