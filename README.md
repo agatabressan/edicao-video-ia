@@ -2,6 +2,10 @@
 
 Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA (Claude): transcrição, remoção de silêncios/erros, legendas, grade de cor e finalização — do bruto ao vídeo publicado.
 
+## Por que importa
+
+**Zero editores contratados.** 15 vídeos editados com IA (14 entrevistas + vlog de bastidores), cada um do bruto ao YouTube em menos de 1 hora de trabalho ativo — a edição manual costuma levar de 3 a 6 horas, cerca de 3 a 5 horas economizadas por vídeo — com SEO em cada upload (títulos, descrições e metadados padronizados) e 14 lutas completas publicadas em lote de forma automatizada (~28 min).
+
 ## Entrevistas
 
 | Entrevistado | Assista | Modelo | Tempo de edição |
