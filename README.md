@@ -4,7 +4,7 @@ Portfólio dos cortes de entrevista do evento LMC 2, editados com auxílio de IA
 
 ## Por que importa
 
-Nenhum editor foi contratado, nem por vídeo nem por hora. O fluxo cobre edição e publicação do início ao fim, do bruto ao YouTube com backup no Drive, rodando em segundo plano enquanto a gente seguia em outras frentes. A participação humana ficou só na validação final. Como quem sobe vídeo nem sempre domina SEO de YouTube, cada upload sai com títulos, descrições e metadados padronizados. Além dos 15 vídeos editados, as 14 lutas completas foram publicadas em lote automaticamente.
+Nenhum editor foi contratado, nem por vídeo nem por hora. O fluxo cobre edição e publicação do início ao fim, do bruto ao YouTube com backup no Drive, rodando em segundo plano enquanto a gente seguia em outras frentes. A participação humana ficou só na validação final. Como quem sobe vídeo nem sempre domina SEO de YouTube, cada upload sai com títulos, descrições e metadados padronizados. No total, 15 vídeos foram editados e publicados de forma automatizada, e 14 lutas completas foram publicadas em lote.
 
 ## Entrevistas
 
